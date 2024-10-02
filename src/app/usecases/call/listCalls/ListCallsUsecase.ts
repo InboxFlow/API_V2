@@ -12,7 +12,7 @@ class ListCallsUsecase {
     const { channelId } = validator.formValidate(params);
 
     const calls = await this.callRepository.findAll({
-      limit: 20,
+      limit: 100000,
       offset: 0,
       channelId,
     });

@@ -1,5 +1,5 @@
 function maskSensitiveData(jsonString: string): string {
-  const sensitiveKeys = ["password", "creditCard"];
+  const sensitiveKeys = ["password", "confirmPassword", "creditCard"];
 
   function maskValue(key: string, value: any): any {
     if (sensitiveKeys.includes(key)) return "****";
@@ -11,7 +11,17 @@ function maskSensitiveData(jsonString: string): string {
       return obj.map((item) => recursiveMask(item));
     } else if (obj !== null && typeof obj === "object") {
       return Object.keys(obj).reduce((acc, key) => {
-        acc[key] = recursiveMask(maskValue(key, obj[key]));
+        let value = obj[key];
+        // Verifica se o valor é uma string JSON aninhada
+        if (typeof value === "string") {
+          try {
+            const parsedValue = JSON.parse(value);
+            if (typeof parsedValue === "object") {
+              value = JSON.stringify(recursiveMask(parsedValue));
+            }
+          } catch (e) {}
+        }
+        acc[key] = recursiveMask(maskValue(key, value));
         return acc;
       }, {} as any);
     }
