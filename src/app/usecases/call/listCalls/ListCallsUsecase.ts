@@ -7,14 +7,23 @@ import { listCallsSchema } from "~/infra/schemas/callSchemas";
 class ListCallsUsecase {
   constructor(private callRepository: CallRepository) {}
 
-  async execute(params: Params) {
+  async execute(params: Params, filters: URLSearchParams) {
     const validator = new ValidatorAdapter(listCallsSchema);
     const { channelId } = validator.formValidate(params);
 
+    const limit = filters.get("limit") || 1000;
+    const offset = filters.get("offset") || 0;
+    const method = filters.get("method");
+    const request = filters.get("request");
+    const response = filters.get("response");
+
     const calls = await this.callRepository.findAll({
-      limit: 100000,
-      offset: 0,
+      limit: +limit,
+      offset: +offset,
       channelId,
+      method,
+      request,
+      response,
     });
 
     return json(calls.map((call) => call.toJson()));

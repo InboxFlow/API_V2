@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, desc, eq, like } from "drizzle-orm";
 
 import { Call } from "~/app/entities";
 import { callMapper } from "~/app/mappers";
@@ -9,10 +9,19 @@ import { CallRepositoryDTO, SearchParams } from "./RepositoryDTO";
 
 class CallRepository implements CallRepositoryDTO {
   async findAll(params: SearchParams) {
+    const conditions = [eq(call.channelId, params.channelId)];
+
+    if (params?.method) conditions.push(eq(call.method, params.method));
+    if (params?.request)
+      conditions.push(like(call.request, `%${params.request}%`));
+    if (params?.response)
+      conditions.push(like(call.response, `%${params.response}%`));
+
     const data = await db.query.call.findMany({
-      where: eq(call.channelId, params.channelId),
+      where: and(...conditions),
       offset: params.offset,
       limit: params.limit,
+      orderBy: desc(call.createdAt),
     });
 
     return data.map((item) => Call.restore(item));

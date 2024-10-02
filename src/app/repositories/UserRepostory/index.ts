@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 
 import { User } from "~/app/entities";
 import { userMapper } from "~/app/mappers";
@@ -9,7 +9,12 @@ import { SearchParams, UserRepositoryDTO } from "./RepositoryDTO";
 
 class UserRepository implements UserRepositoryDTO {
   async findAll(params: SearchParams) {
-    const data = await db.query.user.findMany(params);
+    const data = await db.query.user.findMany({
+      offset: params.offset,
+      limit: params.limit,
+      orderBy: desc(user.createdAt),
+    });
+
     return data.map((item) => User.restore(item));
   }
 

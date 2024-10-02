@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 
 import { Channel } from "~/app/entities";
 import { channelMapper } from "~/app/mappers";
@@ -13,6 +13,7 @@ class ChannelRepository implements ChannelRepositoryDTO {
       where: eq(channel.userId, params.userId),
       offset: params.offset,
       limit: params.limit,
+      orderBy: desc(channel.createdAt),
     });
 
     return data.map((item) => Channel.restore(item));

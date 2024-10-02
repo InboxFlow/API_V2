@@ -3,6 +3,9 @@ import { Call } from "~/app/entities";
 interface SearchParams {
   offset: number;
   limit: number;
+  method: string | null;
+  request: string | null;
+  response: string | null;
   channelId: string;
 }
 
