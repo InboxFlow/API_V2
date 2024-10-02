@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { maskSensitiveData } from "~/main/services";
 
 const createCallSchema = z.object({
   token: z
@@ -11,10 +12,12 @@ const createCallSchema = z.object({
   }),
   request: z
     .string({ required_error: "Request is required" })
-    .min(1, "Request is required"),
+    .min(1, "Request is required")
+    .transform(maskSensitiveData),
   response: z
     .string({ required_error: "Response is required" })
-    .min(1, "Response is required"),
+    .min(1, "Response is required")
+    .transform(maskSensitiveData),
   channelId: z
     .string({ required_error: "ChannelId is required" })
     .min(1, "ChannelId is required"),
