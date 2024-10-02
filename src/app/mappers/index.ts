@@ -1,4 +1,5 @@
+import { callMapper } from "./callMapper";
 import { channelMapper } from "./channelMapper";
 import { userMapper } from "./userMapper";
 
-export { channelMapper, userMapper };
+export { callMapper, channelMapper, userMapper };

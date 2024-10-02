@@ -6,8 +6,8 @@ type UserConstructorType = {
   mail: string;
   password: string;
   verified: boolean;
-  createdAt?: Date | null;
-  updatedAt?: Date | null;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 type UserRestoreType = {

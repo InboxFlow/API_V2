@@ -1,12 +1,12 @@
 import { Channel } from "../entities";
 
-function channelMapper(user: Channel) {
+function channelMapper(channel: Channel) {
   return {
-    id: user.id,
-    name: user.name,
-    userId: user.userId,
-    createdAt: user.createdAt.toString(),
-    updatedAt: user.updatedAt.toString(),
+    id: channel.id,
+    name: channel.name,
+    userId: channel.userId,
+    createdAt: channel.createdAt.toString(),
+    updatedAt: channel.updatedAt.toString(),
   };
 }
 

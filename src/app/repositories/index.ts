@@ -1,4 +1,5 @@
+import { CallRepository } from "./CallRepository";
 import { ChannelRepository } from "./ChannelRepository";
 import { UserRepository } from "./UserRepostory";
 
-export { ChannelRepository, UserRepository };
+export { CallRepository, ChannelRepository, UserRepository };

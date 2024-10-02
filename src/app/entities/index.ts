@@ -1,4 +1,5 @@
+import { Call } from "./Call";
 import { Channel } from "./Channel";
 import { User } from "./User";
 
-export { Channel, User };
+export { Call, Channel, User };

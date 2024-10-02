@@ -1,0 +1,31 @@
+import { z } from "zod";
+
+const createCallSchema = z.object({
+  token: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((value) => value || "TOKEN_NOT_SENT"),
+  method: z.enum(["GET", "POST", "PUT", "DELETE", "PATCH", "ERROR"], {
+    invalid_type_error: "Invalid method",
+  }),
+  request: z
+    .string({ required_error: "Request is required" })
+    .min(1, "Request is required"),
+  response: z
+    .string({ required_error: "Response is required" })
+    .min(1, "Response is required"),
+  channelId: z
+    .string({ required_error: "ChannelId is required" })
+    .min(1, "ChannelId is required"),
+});
+
+const listCallsSchema = z.object({
+  channelId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
+});
+
+const listCallByIdSchema = z.object({
+  callId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
+});
+
+export { createCallSchema, listCallByIdSchema, listCallsSchema };

@@ -4,8 +4,8 @@ type ChannelConstructorType = {
   id: string;
   name: string;
   userId: string;
-  createdAt?: Date | null;
-  updatedAt?: Date | null;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 type ChannelRestoreType = {
