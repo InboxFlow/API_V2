@@ -4,7 +4,7 @@ import { env } from "../config";
 
 async function generateVerifyToken(user: User) {
   const alg = "HS256";
-  const secret = new TextEncoder().encode(env.JWT_VERIFY_KEY);
+  const secret = new TextEncoder().encode(env.JWT_KEY);
   const token = await new SignJWT({ id: user.id })
     .setProtectedHeader({ alg })
     .setIssuedAt()

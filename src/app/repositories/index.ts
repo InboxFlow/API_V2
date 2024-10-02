@@ -1,3 +1,4 @@
-import { UserRepository } from "./User";
+import { ChannelRepository } from "./ChannelRepository";
+import { UserRepository } from "./UserRepostory";
 
-export { UserRepository };
+export { ChannelRepository, UserRepository };

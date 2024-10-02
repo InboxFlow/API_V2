@@ -1,3 +1,4 @@
+import { channelMapper } from "./channelMapper";
 import { userMapper } from "./userMapper";
 
-export { userMapper };
+export { channelMapper, userMapper };

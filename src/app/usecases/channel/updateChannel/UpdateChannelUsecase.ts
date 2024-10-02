@@ -1,0 +1,27 @@
+import { BadRequestError } from "@arkyn/server";
+import { json } from "@remix-run/react";
+
+import { ChannelRepository } from "~/app/repositories";
+import { ValidatorAdapter } from "~/infra/adapters";
+import { updateChannelSchema } from "~/infra/schemas/channelSchemas";
+
+class UpdateChannelUsecase {
+  constructor(private channelRepository: ChannelRepository) {}
+
+  async execute(body: any, params: any) {
+    const validator = new ValidatorAdapter(updateChannelSchema);
+
+    const { name, channelId } = validator.formValidate({ ...body, ...params });
+
+    const channel = await this.channelRepository.findById(channelId);
+    if (!channel) throw new BadRequestError("Channel not found");
+
+    channel.update({ name });
+
+    await this.channelRepository.updateChannel(channel);
+
+    return json(channel.toJson());
+  }
+}
+
+export { UpdateChannelUsecase };
