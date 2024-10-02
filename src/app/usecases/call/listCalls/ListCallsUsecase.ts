@@ -17,7 +17,7 @@ class ListCallsUsecase {
     const request = filters.get("request");
     const response = filters.get("response");
 
-    const calls = await this.callRepository.findAll({
+    const { data, filter } = await this.callRepository.findAll({
       limit: +limit,
       offset: +offset,
       channelId,
@@ -26,7 +26,10 @@ class ListCallsUsecase {
       response,
     });
 
-    return json(calls.map((call) => call.toJson()));
+    return json({
+      filter,
+      data: data.map((call) => call.toJson()),
+    });
   }
 }
 

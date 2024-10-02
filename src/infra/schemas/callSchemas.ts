@@ -31,8 +31,17 @@ const listCallsSchema = z.object({
   channelId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
 });
 
+const deleteAllCallsSchema = z.object({
+  channelId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
+});
+
 const listCallByIdSchema = z.object({
   callId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
 });
 
-export { createCallSchema, listCallByIdSchema, listCallsSchema };
+export {
+  createCallSchema,
+  deleteAllCallsSchema,
+  listCallByIdSchema,
+  listCallsSchema,
+};

@@ -9,22 +9,38 @@ import { CallRepositoryDTO, SearchParams } from "./RepositoryDTO";
 
 class CallRepository implements CallRepositoryDTO {
   async findAll(params: SearchParams) {
+    const offset = params.offset === 0 ? 0 : params.offset - 1;
     const conditions = [eq(call.channelId, params.channelId)];
 
-    if (params?.method) conditions.push(eq(call.method, params.method));
-    if (params?.request)
+    if (params?.method) {
+      conditions.push(eq(call.method, params.method));
+    }
+
+    if (params?.request) {
       conditions.push(like(call.request, `%${params.request}%`));
-    if (params?.response)
+    }
+
+    if (params?.response) {
       conditions.push(like(call.response, `%${params.response}%`));
+    }
 
     const data = await db.query.call.findMany({
+      offset,
       where: and(...conditions),
-      offset: params.offset,
       limit: params.limit,
       orderBy: desc(call.createdAt),
     });
 
-    return data.map((item) => Call.restore(item));
+    const totalItems = await db.query.call
+      .findMany({ where: and(...conditions) })
+      .then((calls) => calls.length);
+
+    const totalPages = Math.ceil(totalItems / params.limit);
+
+    return {
+      filter: { totalPages, totalItems, offset },
+      data: data.map((item) => Call.restore(item)),
+    };
   }
 
   async findById(id: string) {
@@ -37,6 +53,10 @@ class CallRepository implements CallRepositoryDTO {
     const mappedCall = callMapper(data);
     await db.insert(call).values(mappedCall);
     return data;
+  }
+
+  async deleteAllCalls(channelId: string) {
+    await db.delete(call).where(eq(call.channelId, channelId));
   }
 }
 

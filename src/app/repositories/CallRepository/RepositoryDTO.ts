@@ -10,10 +10,14 @@ interface SearchParams {
 }
 
 interface CallRepositoryDTO {
-  findAll(searchParams: SearchParams): Promise<Call[]>;
   findById(id: string): Promise<Call | null>;
+  findAll(searchParams: SearchParams): Promise<{
+    data: Call[];
+    filter: any;
+  }>;
 
   createCall(data: Call): Promise<Call>;
+  deleteAllCalls(channelId: string): Promise<void>;
 }
 
 export type { SearchParams, CallRepositoryDTO };
