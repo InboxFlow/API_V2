@@ -3,20 +3,31 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
+    "drizzle:generate": "bunx drizzle-kit generate && bunx drizzle-kit push",
+    "drizzle:studio": "bun run drizzle-kit studio",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@arkyn/server": "^1.3.119",
+    "@arkyn/shared": "^1.3.119",
+    "@arkyn/types": "^1.3.119",
+    "@libsql/client": "^0.14.0",
     "@remix-run/node": "^2.12.1",
     "@remix-run/react": "^2.12.1",
     "@remix-run/serve": "^2.12.1",
+    "argon2": "^0.41.1",
+    "drizzle-orm": "^0.33.0",
     "isbot": "^4.1.0",
+    "jose": "^5.9.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.12.1",
@@ -25,14 +36,13 @@
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "^10.4.19",
+    "drizzle-kit": "^0.24.2",
     "eslint": "^8.38.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
