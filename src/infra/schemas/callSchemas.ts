@@ -13,11 +13,7 @@ const createCallSchema = z.object({
   request: z
     .string({ required_error: "Request is required" })
     .min(1, "Request is required")
-    .transform((data) => {
-      console.log(data);
-      console.log(maskSensitiveData(data));
-      return maskSensitiveData(data);
-    }),
+    .transform(maskSensitiveData),
   response: z
     .string({ required_error: "Response is required" })
     .min(1, "Response is required")
