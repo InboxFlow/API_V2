@@ -1,5 +1,5 @@
 import { globalErrorHandler, NotFoundError } from "@arkyn/server";
-import { LoaderFunctionArgs } from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 
 import { createUser } from "~/app/usecases/user/createUser";
 import { listUsers } from "~/app/usecases/user/listUsers";
@@ -12,7 +12,7 @@ export async function loader(args: LoaderFunctionArgs) {
   }
 }
 
-export async function action(args: LoaderFunctionArgs) {
+export async function action(args: ActionFunctionArgs) {
   try {
     switch (args.request.method) {
       case "POST":

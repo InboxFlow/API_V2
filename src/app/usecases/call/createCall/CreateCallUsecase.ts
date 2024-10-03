@@ -1,5 +1,3 @@
-import { json } from "@remix-run/react";
-
 import { Call } from "~/app/entities";
 import { CallRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -16,7 +14,7 @@ class CreateCallUsecase {
     const call = Call.create({ channelId, method, request, response, token });
     await this.callRepository.createCall(call);
 
-    return json(call.toJson());
+    return call.toJson();
   }
 }
 

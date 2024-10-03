@@ -1,5 +1,4 @@
 import { BadRequestError } from "@arkyn/server";
-import { json } from "@remix-run/react";
 
 import { UserRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -15,7 +14,7 @@ class ListUserByMailUsecase {
     const user = await this.userRepository.findByMail(userMail);
     if (!user) throw new BadRequestError("User not found");
 
-    return json(user.toJson());
+    return user.toJson();
   }
 }
 

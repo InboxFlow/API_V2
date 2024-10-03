@@ -12,7 +12,6 @@ function maskSensitiveData(jsonString: string): string {
     } else if (obj !== null && typeof obj === "object") {
       return Object.keys(obj).reduce((acc, key) => {
         let value = obj[key];
-        // Verifica se o valor é uma string JSON aninhada
         if (typeof value === "string") {
           try {
             const parsedValue = JSON.parse(value);

@@ -1,12 +1,11 @@
-import { ActionFunctionArgs } from "@remix-run/node";
-
 import { extractJsonFromRequest } from "~/main/services";
+import { ContextType } from "~/main/types";
 import { UpdateUserUsecase } from "./UpdateUserUsecase";
 
 class UpdateUserController {
   constructor(private updateUserUsecase: UpdateUserUsecase) {}
 
-  async handle({ request, params }: ActionFunctionArgs) {
+  async handle({ request, params }: ContextType) {
     const body = await extractJsonFromRequest(request);
     return await this.updateUserUsecase.execute(body, params);
   }

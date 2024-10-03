@@ -1,5 +1,4 @@
 import { BadRequestError } from "@arkyn/server";
-import { json } from "@remix-run/react";
 
 import { ChannelRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -15,7 +14,7 @@ class ListChannelByIdUsecase {
     const channel = await this.channelRepository.findById(channelId);
     if (!channel) throw new BadRequestError("Channel not found");
 
-    return json(channel.toJson());
+    return channel.toJson();
   }
 }
 

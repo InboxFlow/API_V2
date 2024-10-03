@@ -1,10 +1,8 @@
 import { BadRequestError } from "@arkyn/server";
-import { json } from "@remix-run/react";
-import { hash } from "argon2";
 
 import { User } from "~/app/entities";
 import { UserRepository } from "~/app/repositories";
-import { ValidatorAdapter } from "~/infra/adapters";
+import { PasswordAdapter, ValidatorAdapter } from "~/infra/adapters";
 import { createUserSchema } from "~/infra/schemas/userSchemas";
 
 class CreateUserUsecase {
@@ -17,12 +15,13 @@ class CreateUserUsecase {
     const userExists = await this.userRepository.findByMail(mail);
     if (userExists) throw new BadRequestError("User already exists");
 
-    const passwordHash = await hash(password);
+    const passwordAdapter = new PasswordAdapter();
+    const passwordHash = await passwordAdapter.hash(password);
     const user = User.create({ mail, name, password: passwordHash });
 
     await this.userRepository.createUser(user);
 
-    return json(user.toJson());
+    return user.toJson();
   }
 }
 

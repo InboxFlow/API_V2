@@ -1,44 +1,18 @@
-import { and, desc, eq, like } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 
 import { Call } from "~/app/entities";
 import { callMapper } from "~/app/mappers";
 import { call } from "~/infra/database/tables";
 import { db } from "~/main/services";
 
-import { CallRepositoryDTO, SearchParams } from "./RepositoryDTO";
+import { GenerateFiltersReturn } from "~/main/services/generateFilters";
+import { CallRepositoryDTO } from "./RepositoryDTO";
 
 class CallRepository implements CallRepositoryDTO {
-  async findAll(params: SearchParams) {
-    const offset = params.offset === 0 ? 0 : params.offset - 1;
-    const conditions = [eq(call.channelId, params.channelId)];
-
-    if (params?.method) {
-      conditions.push(eq(call.method, params.method));
-    }
-
-    if (params?.request) {
-      conditions.push(like(call.request, `%${params.request}%`));
-    }
-
-    if (params?.response) {
-      conditions.push(like(call.response, `%${params.response}%`));
-    }
-
-    const data = await db.query.call.findMany({
-      offset,
-      where: and(...conditions),
-      limit: params.limit,
-      orderBy: desc(call.createdAt),
-    });
-
-    const totalItems = await db.query.call
-      .findMany({ where: and(...conditions) })
-      .then((calls) => calls.length);
-
-    const totalPages = Math.ceil(totalItems / params.limit);
-
+  async findAll(filters: GenerateFiltersReturn<Call>) {
+    const data = await db.query.call.findMany(filters);
     return {
-      filter: { totalPages, totalItems, offset },
+      filter: filters,
       data: data.map((item) => Call.restore(item)),
     };
   }

@@ -1,10 +1,10 @@
-import { LoaderFunctionArgs } from "@remix-run/node";
+import { ContextType } from "~/main/types";
 import { ListUserByMailUsecase } from "./ListUserByMailUsecase";
 
 class ListUserByMailController {
   constructor(private listUserByMailUsecase: ListUserByMailUsecase) {}
 
-  async handle({ params }: LoaderFunctionArgs) {
+  async handle({ params }: ContextType) {
     return await this.listUserByMailUsecase.execute(params);
   }
 }

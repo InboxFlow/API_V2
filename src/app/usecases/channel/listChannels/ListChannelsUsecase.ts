@@ -1,6 +1,4 @@
-import { json } from "@remix-run/react";
 import { User } from "~/app/entities";
-
 import { ChannelRepository } from "~/app/repositories";
 
 class ListChannelsUsecase {
@@ -13,7 +11,7 @@ class ListChannelsUsecase {
       userId: user.id,
     });
 
-    return json(channels.map((channel) => channel.toJson()));
+    return channels.map((channel) => channel.toJson());
   }
 }
 

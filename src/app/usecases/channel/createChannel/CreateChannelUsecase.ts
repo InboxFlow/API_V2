@@ -1,5 +1,3 @@
-import { json } from "@remix-run/react";
-
 import { Channel, User } from "~/app/entities";
 import { ChannelRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -15,7 +13,7 @@ class CreateChannelUsecase {
     const channel = Channel.create({ name, userId: user.id });
     await this.channelRepository.createChannel(channel);
 
-    return json(channel.toJson());
+    return channel.toJson();
   }
 }
 

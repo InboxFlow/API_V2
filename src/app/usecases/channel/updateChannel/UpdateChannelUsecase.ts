@@ -1,5 +1,4 @@
 import { BadRequestError } from "@arkyn/server";
-import { json } from "@remix-run/react";
 
 import { ChannelRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -20,7 +19,7 @@ class UpdateChannelUsecase {
 
     await this.channelRepository.updateChannel(channel);
 
-    return json(channel.toJson());
+    return channel.toJson();
   }
 }
 

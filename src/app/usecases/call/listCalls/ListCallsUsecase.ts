@@ -1,35 +1,29 @@
-import { json, Params } from "@remix-run/react";
-
 import { CallRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
+import { call } from "~/infra/database/tables";
 import { listCallsSchema } from "~/infra/schemas/callSchemas";
+import { generateFilters } from "~/main/services";
+import { ContextType } from "~/main/types";
 
 class ListCallsUsecase {
   constructor(private callRepository: CallRepository) {}
 
-  async execute(params: Params, filters: URLSearchParams) {
+  async execute(params: ContextType["params"], searchParams: URLSearchParams) {
     const validator = new ValidatorAdapter(listCallsSchema);
     const { channelId } = validator.formValidate(params);
 
-    const limit = filters.get("limit") || 1000;
-    const offset = filters.get("offset") || 0;
-    const method = filters.get("method");
-    const request = filters.get("request");
-    const response = filters.get("response");
-
-    const { data, filter } = await this.callRepository.findAll({
-      limit: +limit,
-      offset: +offset,
-      channelId,
-      method,
-      request,
-      response,
+    const filters = generateFilters(call, searchParams, {
+      method: "equal",
+      response: "include",
+      request: "include",
     });
 
-    return json({
+    const { data, filter } = await this.callRepository.findAll(filters);
+
+    return {
       filter,
       data: data.map((call) => call.toJson()),
-    });
+    };
   }
 }
 

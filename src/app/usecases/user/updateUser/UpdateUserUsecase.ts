@@ -1,5 +1,4 @@
 import { BadRequestError } from "@arkyn/server";
-import { json } from "@remix-run/react";
 
 import { UserRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -20,7 +19,7 @@ class UpdateUserUsecase {
 
     await this.userRepository.updateUser(user);
 
-    return json(user.toJson());
+    return user.toJson();
   }
 }
 
