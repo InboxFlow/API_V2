@@ -3,7 +3,7 @@ function truncateLargeFields(jsonString: string): string {
 
   function truncateValue(key: string, value: any): any {
     if (typeof value === "string" && value.length > maxLength) {
-      return "to-large-information";
+      return `To large information: field as ${value.length} characters`;
     }
     return value;
   }
