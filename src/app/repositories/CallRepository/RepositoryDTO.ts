@@ -1,15 +1,19 @@
 import { Call } from "~/app/entities";
-import { GenerateFiltersReturn } from "~/main/services/generateFilters";
+
+interface SearchParams {
+  method: string | null;
+  response: string | null;
+  request: string | null;
+  channelId: string;
+  offset: number;
+  limit: number;
+}
 
 interface CallRepositoryDTO {
   findById(id: string): Promise<Call | null>;
-  findAll(filters: GenerateFiltersReturn<Call>): Promise<{
-    data: Call[];
-    filter: any;
-  }>;
-
+  findAll(filters: SearchParams): Promise<{ data: Call[]; filter: any }>;
   createCall(data: Call): Promise<Call>;
   deleteAllCalls(channelId: string): Promise<void>;
 }
 
-export type { CallRepositoryDTO };
+export type { CallRepositoryDTO, SearchParams };
