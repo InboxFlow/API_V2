@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { maskSensitiveData } from "~/main/services";
+import { maskSensitiveData, truncateLargeFields } from "~/main/services";
+
+function transformData(data: string): string {
+  return truncateLargeFields(maskSensitiveData(data));
+}
 
 const createCallSchema = z.object({
   token: z
@@ -13,11 +17,11 @@ const createCallSchema = z.object({
   request: z
     .string({ required_error: "Request is required" })
     .min(1, "Request is required")
-    .transform(maskSensitiveData),
+    .transform(transformData),
   response: z
     .string({ required_error: "Response is required" })
     .min(1, "Response is required")
-    .transform(maskSensitiveData),
+    .transform(transformData),
   channelId: z
     .string({ required_error: "ChannelId is required" })
     .min(1, "ChannelId is required"),
