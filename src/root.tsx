@@ -1,3 +1,4 @@
+import { ModalProvider, ToastProvider } from "@arkyn/components";
 import {
   Links,
   Meta,
@@ -5,6 +6,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+
+import { ProgressBar } from "./client/components";
+
+import "@arkyn/components/dist/style.css";
+import "~/client/theme/reset.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +22,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <ToastProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </ToastProvider>
+        <ProgressBar />
         <ScrollRestoration />
         <Scripts />
       </body>

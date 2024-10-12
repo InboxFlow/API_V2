@@ -9,9 +9,13 @@ class PasswordAdapter {
     return passwordHash;
   }
 
-  async verify(password: string, hash: string) {
+  async verify(hash: string, password: string) {
     const match = await argonVerify(hash, password);
     if (!match) throw new BadRequestError("Invalid password");
+  }
+
+  async safeVerify(hash: string, password: string) {
+    return await argonVerify(hash, password);
   }
 }
 

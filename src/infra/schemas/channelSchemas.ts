@@ -1,7 +1,9 @@
 import { z } from "zod";
 
 const createChannelSchema = z.object({
-  name: z.string({ required_error: "Name is required" }),
+  name: z
+    .string({ required_error: "Name is required" })
+    .min(1, "Name is required"),
 });
 
 const deleteChannelSchema = z.object({
@@ -9,7 +11,9 @@ const deleteChannelSchema = z.object({
 });
 
 const updateChannelSchema = z.object({
-  name: z.string({ required_error: "Name is required" }),
+  name: z
+    .string({ required_error: "Name is required" })
+    .min(1, "Name is required"),
   channelId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
 });
 

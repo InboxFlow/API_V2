@@ -66,7 +66,7 @@ class CallRepository implements CallRepositoryDTO {
   }
 
   async deleteAllCalls(channelId: string) {
-    await db.delete(call).where(eq(call.channelId, channelId));
+    await db.delete(call);
   }
 }
 
