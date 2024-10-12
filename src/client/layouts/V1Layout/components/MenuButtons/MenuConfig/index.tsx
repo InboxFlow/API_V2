@@ -5,7 +5,7 @@ import { useV1Layout } from "~/client/hooks";
 import { BaseHeaderButton } from "../BaseHeaderButton";
 import { NavigationLink, PopoverContent, PopoverHeader } from "./styles";
 
-const ARIA_LABEL = "Abrir o menu de configurações";
+const ARIA_LABEL = "Open settings menu";
 
 function MenuConfig() {
   const { user } = useV1Layout();
@@ -17,8 +17,8 @@ function MenuConfig() {
       closeOnClick
     >
       <PopoverHeader>
-        <strong>Menu de administração</strong>
-        <small>Navegue entre as configurações</small>
+        <strong>Administration menu</strong>
+        <small>Navigate through the settings</small>
       </PopoverHeader>
 
       <PopoverContent>

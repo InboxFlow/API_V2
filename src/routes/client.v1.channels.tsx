@@ -1,9 +1,9 @@
-import { LoaderFunction } from "@remix-run/node";
+import { LoaderFunctionArgs } from "@remix-run/node";
 
 import { listChannels } from "~/app/usecases/channel/listChannels";
 import { ChannelPage } from "~/client/pages/ChannelPage";
 
-export const loader: LoaderFunction = async (context) => {
+export const loader = async (context: LoaderFunctionArgs) => {
   return {
     channels: await listChannels.handle(context),
   };

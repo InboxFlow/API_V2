@@ -44,7 +44,7 @@ function MenuUser() {
       <PopoverFooter>
         <NavigationLink className="danger" to="/api/logout">
           <LogOut />
-          Sair
+          Log out
         </NavigationLink>
       </PopoverFooter>
     </Popover>

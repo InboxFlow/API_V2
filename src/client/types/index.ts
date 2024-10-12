@@ -1,3 +1,4 @@
-import { V1LayoutLoaderType } from "./V1LayoutLoaderType";
+import { ChannelLoader } from "./ChannelLoader";
+import { V1LayoutLoader } from "./V1LayoutLoader";
 
-export type { V1LayoutLoaderType };
+export type { ChannelLoader, V1LayoutLoader };

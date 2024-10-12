@@ -1,3 +1,4 @@
+import { PageHeader } from "./PageHeader";
 import { ProgressBar } from "./ProgressBar";
 
-export { ProgressBar };
+export { PageHeader, ProgressBar };

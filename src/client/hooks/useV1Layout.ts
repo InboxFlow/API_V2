@@ -1,10 +1,10 @@
 import { useMatches } from "@remix-run/react";
 
-import { V1LayoutLoaderType } from "~/client/types";
+import { V1LayoutLoader } from "~/client/types";
 
 function useV1Layout() {
   const matches = useMatches();
-  const v1LayoutData = matches[1].data as V1LayoutLoaderType;
+  const v1LayoutData = matches[1].data as V1LayoutLoader;
 
   return v1LayoutData;
 }

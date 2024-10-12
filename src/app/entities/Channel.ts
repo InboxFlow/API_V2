@@ -74,6 +74,7 @@ class Channel {
       userId: this.userId,
       createdAt: this.createdAt.toISOString(),
       updatedAt: this.updatedAt.toISOString(),
+      formattedCreatedAt: this.createdAt.toLocaleDateString("en-US"),
     };
   }
 }
