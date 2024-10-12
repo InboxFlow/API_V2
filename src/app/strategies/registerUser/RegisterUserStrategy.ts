@@ -36,7 +36,7 @@ class RegisterUserStrategy {
     const sessionData = { ...user.toJson(), token };
     session.set("user", sessionData);
 
-    return redirect("/client/channels", {
+    return redirect("/client/v1/channels", {
       headers: { "Set-Cookie": await commitSession(session) },
     });
   }
