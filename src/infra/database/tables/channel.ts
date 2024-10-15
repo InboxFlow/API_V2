@@ -1,10 +1,10 @@
 import { relations } from "drizzle-orm";
-import { sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { text, pgTable } from "drizzle-orm/pg-core";
 
 import { call } from "./call";
 import { user } from "./user";
 
-const channel = sqliteTable("channel", {
+const channel = pgTable("channel", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   userId: text("userId").notNull(),

@@ -9,7 +9,7 @@ const ARIA_LABEL = "Open settings menu";
 
 function MenuConfig() {
   const { user } = useV1Layout();
-  if (user.mail !== "lucasedugoncalves123@gmail.com") return <></>;
+  if (user.mail !== "lucasgoncalvesgithub@gmail.com") return <></>;
 
   return (
     <Popover

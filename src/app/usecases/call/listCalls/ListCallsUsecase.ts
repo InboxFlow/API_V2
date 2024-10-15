@@ -28,10 +28,10 @@ class ListCallsUsecase {
       response,
     });
 
-    return json({
+    return {
       filter,
       data: data.map((call) => call.toJson()),
-    });
+    };
   }
 }
 

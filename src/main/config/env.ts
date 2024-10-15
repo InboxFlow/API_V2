@@ -9,8 +9,7 @@ class EnvError extends Error {
 
 const envSchema = z.object({
   JWT_KEY: z.string().min(1),
-  TURSO_URL: z.string().min(3),
-  TURSO_TOKEN: z.string().min(3),
+  POSTGRES_URL: z.string().min(3),
 });
 
 function formatErrorMessage(error: z.ZodError) {

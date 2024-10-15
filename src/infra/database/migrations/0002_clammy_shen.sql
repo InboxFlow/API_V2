@@ -1,1 +1,0 @@
-ALTER TABLE `call` DROP COLUMN `token`;

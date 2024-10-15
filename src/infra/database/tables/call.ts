@@ -1,9 +1,9 @@
 import { relations } from "drizzle-orm";
-import { sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { text, pgTable } from "drizzle-orm/pg-core";
 
 import { channel } from "./channel";
 
-const call = sqliteTable("call", {
+const call = pgTable("call", {
   id: text("id").primaryKey(),
   method: text("method").notNull(),
   request: text("request").notNull(),

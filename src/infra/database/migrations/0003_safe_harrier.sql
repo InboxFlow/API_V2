@@ -1,1 +1,0 @@
-ALTER TABLE `call` ADD `token` text NOT NULL;
