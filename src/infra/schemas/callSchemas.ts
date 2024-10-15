@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { maskSensitiveData, truncateLargeFields } from "~/main/services";
+import { maskSensitiveData, truncateLargeFields } from "@arkyn/shared";
 
 function transformData(data: string): string {
   return truncateLargeFields(maskSensitiveData(data));

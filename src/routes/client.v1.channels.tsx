@@ -4,9 +4,7 @@ import { listChannels } from "~/app/usecases/channel/listChannels";
 import { ChannelPage } from "~/client/pages/ChannelPage";
 
 export const loader = async (context: LoaderFunctionArgs) => {
-  return {
-    channels: await listChannels.handle(context),
-  };
+  return { channels: await listChannels.handle(context) };
 };
 
 export default function ChannelsRoute() {

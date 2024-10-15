@@ -1,5 +1,6 @@
+import { extractJsonFromRequest } from "@arkyn/server";
+
 import { isAuthenticated } from "~/main/middlewares";
-import { extractJsonFromRequest } from "~/main/services";
 import { ContextType } from "~/main/types";
 
 import { UpdateChannelUsecase } from "./UpdateChannelUsecase";

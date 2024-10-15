@@ -9,7 +9,7 @@ function Footer() {
 
   return (
     <ModalFooter>
-      <input type="hidden" name="id" defaultValue={modalData?.id} />
+      <input type="hidden" name="channelId" defaultValue={modalData?.id} />
 
       <Button
         type="button"

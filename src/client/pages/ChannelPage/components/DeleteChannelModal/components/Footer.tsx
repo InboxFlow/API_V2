@@ -1,23 +1,26 @@
 import { Button, ModalFooter } from "@arkyn/components";
-import { useNavigation } from "@remix-run/react";
+import { useFetcher } from "@remix-run/react";
 
 import { useOverlay } from "../../../context";
 
 function Footer() {
   const { closeModal, modalData } = useOverlay().deleteChannelModal;
-  const { state } = useNavigation();
+  const { state, submit } = useFetcher();
+
+  function handleDelete() {
+    submit({}, { action: `/api/channel/${modalData?.id}`, method: "DELETE" });
+    closeModal();
+  }
 
   return (
     <ModalFooter>
-      <input type="hidden" name="id" defaultValue={modalData?.id} />
       <Button type="button" variant="outline" onClick={closeModal}>
         Cancel
       </Button>
       <Button
         isLoading={state !== "idle"}
-        name="_action"
+        onClick={handleDelete}
         scheme="danger"
-        value="deleteChannel"
       >
         Delete
       </Button>

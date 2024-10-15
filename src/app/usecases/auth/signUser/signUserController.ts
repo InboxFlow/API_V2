@@ -1,4 +1,5 @@
-import { extractJsonFromRequest } from "~/main/services";
+import { extractJsonFromRequest } from "@arkyn/server";
+
 import { ContextType } from "~/main/types";
 import { SignUserUsecase } from "./signUserUsecase";
 
