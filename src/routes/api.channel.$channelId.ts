@@ -1,8 +1,17 @@
 import { globalErrorHandler, NotFoundError } from "@arkyn/server";
-import { ActionFunctionArgs } from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 
 import { deleteChannel } from "~/app/usecases/channel/deleteChannel";
+import { listChannelById } from "~/app/usecases/channel/listChannelById";
 import { updateChannel } from "~/app/usecases/channel/updateChannel";
+
+export async function loader(args: LoaderFunctionArgs) {
+  try {
+    return await listChannelById.handle(args);
+  } catch (err) {
+    return globalErrorHandler(err);
+  }
+}
 
 export async function action(args: ActionFunctionArgs) {
   try {

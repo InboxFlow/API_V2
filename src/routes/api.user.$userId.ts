@@ -1,8 +1,17 @@
 import { globalErrorHandler, NotFoundError } from "@arkyn/server";
-import { ActionFunctionArgs } from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 
 import { deleteUser } from "~/app/usecases/user/deleteUser";
+import { listUserById } from "~/app/usecases/user/listUserById";
 import { updateUser } from "~/app/usecases/user/updateUser";
+
+export async function loader(args: LoaderFunctionArgs) {
+  try {
+    return await listUserById.handle(args);
+  } catch (err) {
+    return globalErrorHandler(err);
+  }
+}
 
 export async function action(args: ActionFunctionArgs) {
   try {
