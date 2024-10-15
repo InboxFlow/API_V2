@@ -1,6 +1,6 @@
 import { IconButton, TableBody, Tooltip } from "@arkyn/components";
-import { useLoaderData } from "@remix-run/react";
-import { Edit2, Trash2 } from "lucide-react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
+import { Edit2, Eye, Trash2 } from "lucide-react";
 
 import { ChannelLoader } from "~/client/types";
 
@@ -10,6 +10,11 @@ import { ActionsColumnContainer } from "./styles";
 function Body() {
   const { channels } = useLoaderData<ChannelLoader>();
   const { updateChannelModal, deleteChannelModal } = useOverlay();
+
+  const navigate = useNavigate();
+  function navigateToCalls(channelId: string) {
+    navigate(`/client/v1/calls/${channelId}`);
+  }
 
   return (
     <TableBody>
@@ -39,6 +44,16 @@ function Body() {
                   scheme="danger"
                   aria-label="Open delete event host modal"
                   onClick={() => deleteChannelModal.openModal(channel)}
+                />
+              </Tooltip>
+
+              <Tooltip text="View calls" orientation="left">
+                <IconButton
+                  icon={Eye}
+                  variant="invisible"
+                  size="sm"
+                  aria-label="Open delete event host modal"
+                  onClick={() => navigateToCalls(channel.id)}
                 />
               </Tooltip>
             </div>
