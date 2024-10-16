@@ -1,4 +1,4 @@
-import { desc, eq } from "drizzle-orm";
+import { asc, eq } from "drizzle-orm";
 
 import { Channel } from "~/app/entities";
 import { channelMapper } from "~/app/mappers";
@@ -11,7 +11,7 @@ class ChannelRepository implements ChannelRepositoryDTO {
   async findAll(params: SearchParams) {
     const data = await db.query.channel.findMany({
       where: eq(channel.userId, params.userId),
-      orderBy: desc(channel.createdAt),
+      orderBy: asc(channel.name),
     });
 
     return data.map((item) => Channel.restore(item));
