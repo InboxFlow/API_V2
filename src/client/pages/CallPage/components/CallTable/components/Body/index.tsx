@@ -20,7 +20,7 @@ function Body() {
     <TableBody emptyMessage="No data added.">
       {calls.map((call, index) => (
         <tr key={call.id}>
-          <td>{index + 1}</td>
+          <td>{calls.length - index}</td>
           <td>
             <MethodBadge method={call.method} />
           </td>

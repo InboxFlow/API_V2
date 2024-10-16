@@ -20,7 +20,7 @@ function Body() {
     <TableBody emptyMessage="No data added.">
       {channels.map((channel, index) => (
         <tr key={channel.id}>
-          <td>{index + 1}</td>
+          <td>{channels.length - index}</td>
           <td>{channel.name}</td>
           <td>{channel.formattedCreatedAt}</td>
 
