@@ -9,7 +9,6 @@ import { CallRepositoryDTO, SearchParams } from "./RepositoryDTO";
 
 class CallRepository implements CallRepositoryDTO {
   async findAll(params: SearchParams) {
-    const offset = params.offset === 0 ? 0 : params.offset - 1;
     const conditions = [eq(call.channelId, params.channelId)];
 
     if (params?.method) {
@@ -25,22 +24,11 @@ class CallRepository implements CallRepositoryDTO {
     }
 
     const data = await db.query.call.findMany({
-      offset,
       where: and(...conditions),
-      limit: params.limit,
       orderBy: desc(call.createdAt),
     });
 
-    const totalItems = await db.query.call
-      .findMany({ where: and(...conditions) })
-      .then((calls) => calls.length);
-
-    const totalPages = Math.ceil(totalItems / params.limit);
-
-    return {
-      filter: { totalPages, totalItems, offset },
-      data: data.map((item) => Call.restore(item)),
-    };
+    return data.map((item) => Call.restore(item));
   }
 
   async findById(id: string) {
@@ -66,7 +54,7 @@ class CallRepository implements CallRepositoryDTO {
   }
 
   async deleteAllCalls(channelId: string) {
-    await db.delete(call);
+    await db.delete(call).where(eq(call.channelId, channelId));
   }
 }
 

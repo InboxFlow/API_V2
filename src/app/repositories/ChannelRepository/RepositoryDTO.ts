@@ -1,8 +1,6 @@
 import { Channel } from "~/app/entities";
 
 interface SearchParams {
-  offset: number;
-  limit: number;
   userId: string;
 }
 

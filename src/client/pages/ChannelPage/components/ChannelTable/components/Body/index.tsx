@@ -18,8 +18,9 @@ function Body() {
 
   return (
     <TableBody emptyMessage="No data added.">
-      {channels.map((channel) => (
+      {channels.map((channel, index) => (
         <tr key={channel.id}>
+          <td>{index}</td>
           <td>{channel.name}</td>
           <td>{channel.formattedCreatedAt}</td>
 

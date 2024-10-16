@@ -1,26 +1,32 @@
 import { IconButton, TableBody, Tooltip } from "@arkyn/components";
-import { useLoaderData, useNavigate } from "@remix-run/react";
-import { Edit2, Eye, Trash2 } from "lucide-react";
+import { useLoaderData } from "@remix-run/react";
+import { Eye } from "lucide-react";
 
 import { CallLoader } from "~/client/types";
 
+import { useOverlay } from "../../../../context";
+import { MethodBadge } from "../../../MethodBadge";
 import { ActionsColumnContainer } from "./styles";
 
 function Body() {
   const { calls } = useLoaderData<CallLoader>();
+  const { openModal } = useOverlay().viewCallModal;
 
-  const navigate = useNavigate();
-  function navigateToCalls(channelId: string) {
-    navigate(`/client/v1/calls/${channelId}`);
+  function appendEllipsis(text: string) {
+    return text.length > 40 ? `${text.substring(0, 40)}...` : text;
   }
 
   return (
     <TableBody emptyMessage="No data added.">
-      {calls.data.map((call) => (
+      {calls.map((call, index) => (
         <tr key={call.id}>
-          <td>{call.method}</td>
-          <td>{call.request.substring(0, 20)}</td>
-          <td>{call.response.substring(0, 20)}</td>
+          <td>{index + 1}</td>
+          <td>
+            <MethodBadge method={call.method} />
+          </td>
+          <td>{appendEllipsis(call.request)}</td>
+          <td>{appendEllipsis(call.response)}</td>
+          <td>{call.formattedCreatedAt}</td>
 
           <ActionsColumnContainer>
             <div>
@@ -29,7 +35,8 @@ function Body() {
                   icon={Eye}
                   variant="invisible"
                   size="sm"
-                  aria-label="Open delete event host modal"
+                  aria-label="View call modal"
+                  onClick={() => openModal(call)}
                 />
               </Tooltip>
             </div>

@@ -1,4 +1,4 @@
-import { json, Params } from "@remix-run/react";
+import { Params } from "@remix-run/react";
 
 import { CallRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
@@ -11,27 +11,18 @@ class ListCallsUsecase {
     const validator = new ValidatorAdapter(listCallsSchema);
     const { channelId } = validator.formValidate(params);
 
-    let limit = filters.get("limit") || 10;
-    if (+limit > 100) limit = 100;
-
-    const offset = filters.get("offset") || 0;
     const method = filters.get("method");
     const request = filters.get("request");
     const response = filters.get("response");
 
-    const { data, filter } = await this.callRepository.findAll({
-      limit: +limit,
-      offset: +offset,
+    const calls = await this.callRepository.findAll({
       channelId,
       method,
       request,
       response,
     });
 
-    return {
-      filter,
-      data: data.map((call) => call.toJson()),
-    };
+    return calls.map((call) => call.toJson());
   }
 }
 

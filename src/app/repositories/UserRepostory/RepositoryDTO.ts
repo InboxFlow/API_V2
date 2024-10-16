@@ -1,12 +1,7 @@
 import { User } from "~/app/entities";
 
-interface SearchParams {
-  offset: number;
-  limit: number;
-}
-
 interface UserRepositoryDTO {
-  findAll(searchParams: SearchParams): Promise<User[]>;
+  findAll(): Promise<User[]>;
   findById(id: string): Promise<User | null>;
   findByMail(mail: string): Promise<User | null>;
 
@@ -15,4 +10,4 @@ interface UserRepositoryDTO {
   deleteUser(id: string): Promise<void>;
 }
 
-export type { SearchParams, UserRepositoryDTO };
+export type { UserRepositoryDTO };

@@ -5,13 +5,11 @@ import { userMapper } from "~/app/mappers";
 import { user } from "~/infra/database/tables";
 import { db } from "~/main/services";
 
-import { SearchParams, UserRepositoryDTO } from "./RepositoryDTO";
+import { UserRepositoryDTO } from "./RepositoryDTO";
 
 class UserRepository implements UserRepositoryDTO {
-  async findAll(params: SearchParams) {
+  async findAll() {
     const data = await db.query.user.findMany({
-      offset: params.offset,
-      limit: params.limit,
       orderBy: desc(user.createdAt),
     });
 

@@ -5,13 +5,11 @@ interface SearchParams {
   response: string | null;
   request: string | null;
   channelId: string;
-  offset: number;
-  limit: number;
 }
 
 interface CallRepositoryDTO {
   findById(id: string): Promise<Call | null>;
-  findAll(filters: SearchParams): Promise<{ data: Call[]; filter: any }>;
+  findAll(filters: SearchParams): Promise<Call[]>;
   createCall(data: Call): Promise<Call>;
   deleteAllCalls(channelId: string): Promise<void>;
 }

@@ -1,3 +1,4 @@
+import { CallModel } from "./CallModel";
 import { ChannelModel } from "./ChannelModel";
 
-export type { ChannelModel };
+export type { ChannelModel, CallModel };

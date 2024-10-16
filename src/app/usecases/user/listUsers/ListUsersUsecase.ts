@@ -4,7 +4,7 @@ class ListUsersUsecase {
   constructor(private userRepository: UserRepository) {}
 
   async execute() {
-    const users = await this.userRepository.findAll({ limit: 20, offset: 0 });
+    const users = await this.userRepository.findAll();
     return users.map((user) => user.toJson());
   }
 }

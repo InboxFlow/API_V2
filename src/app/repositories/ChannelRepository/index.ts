@@ -11,8 +11,6 @@ class ChannelRepository implements ChannelRepositoryDTO {
   async findAll(params: SearchParams) {
     const data = await db.query.channel.findMany({
       where: eq(channel.userId, params.userId),
-      offset: params.offset,
-      limit: params.limit,
       orderBy: desc(channel.createdAt),
     });
 
