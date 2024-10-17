@@ -85,9 +85,9 @@ class Call {
       request: this.request,
       response: this.response,
       channelId: this.channelId,
-      formattedCreatedAt: this.createdAt.toLocaleString("en-US"),
       createdAt: this.createdAt.toISOString(),
       updatedAt: this.updatedAt.toISOString(),
+      formattedCreatedAt: this.createdAt.toLocaleString("pt-BR"),
     };
   }
 }
