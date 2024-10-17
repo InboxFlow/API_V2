@@ -2,7 +2,7 @@ import { z } from "zod";
 import { maskSensitiveData, truncateLargeFields } from "@arkyn/shared";
 
 function transformData(data: string): string {
-  return truncateLargeFields(maskSensitiveData(data));
+  return truncateLargeFields(maskSensitiveData(data), 10000);
 }
 
 const createCallSchema = z.object({

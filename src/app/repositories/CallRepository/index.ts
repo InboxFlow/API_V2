@@ -43,7 +43,7 @@ class CallRepository implements CallRepositoryDTO {
       orderBy: asc(call.createdAt),
     });
 
-    if (existingCalls.length >= 1000) {
+    if (existingCalls.length >= 10000) {
       const oldestCall = existingCalls[0];
       await db.delete(call).where(eq(call.id, oldestCall.id));
     }
