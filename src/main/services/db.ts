@@ -1,22 +1,22 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
-
 import * as schema from "~/infra/database/tables";
 import { env } from "../config";
 
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+
+import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
+
 declare global {
-  var _pgClient: ReturnType<typeof postgres> | undefined;
+  var db: PostgresJsDatabase<typeof schema>;
 }
 
-if (!global._pgClient) {
-  global._pgClient = postgres(env.POSTGRES_URL, {
-    max: 5,
-    idle_timeout: 10000,
-    connect_timeout: 2000,
-  });
-}
+let db: PostgresJsDatabase<typeof schema>;
 
-const client = global._pgClient;
-const db = drizzle(client, { schema });
+if (process.env.NODE_ENV === "production") {
+  db = drizzle(postgres(env.POSTGRES_URL), { schema });
+} else {
+  if (!global.db) global.db = drizzle(postgres(env.POSTGRES_URL), { schema });
+  db = global.db;
+}
 
 export { db };

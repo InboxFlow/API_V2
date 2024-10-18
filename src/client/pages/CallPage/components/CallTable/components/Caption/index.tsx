@@ -11,19 +11,8 @@ function Caption() {
 
   const defaultSearch = getParam("search") || "";
   const handleSearch = (e: string) => navigate(getScopedSearch({ search: e }));
-
-  return (
-    <CaptionContainer>
-      <Input
-        type="text"
-        name="search-example"
-        rightIcon={Search}
-        placeholder="Buscar..."
-        defaultValue={defaultSearch}
-        onChange={(e) => handleSearch(e.target.value)}
-      />
-    </CaptionContainer>
-  );
+  return <></>;
+  return <CaptionContainer></CaptionContainer>;
 }
 
 export { Caption };

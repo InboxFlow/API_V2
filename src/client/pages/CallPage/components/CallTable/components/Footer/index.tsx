@@ -11,7 +11,7 @@ function Footer() {
   return (
     <FooterContainer>
       <p>
-        Exibindo {page} de {lastPage} páginas
+        Displaying {page} of {lastPage} pages - {totalCount} calls
       </p>
       <Pagination totalCountRegisters={totalCount} />
     </FooterContainer>
