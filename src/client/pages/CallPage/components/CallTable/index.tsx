@@ -5,6 +5,7 @@ import { Caption } from "./components/Caption";
 import { Header } from "./components/Header";
 
 import { Container } from "./styles";
+import { Footer } from "./components/Footer";
 
 function CallTable() {
   return (
@@ -14,6 +15,7 @@ function CallTable() {
         <Header />
         <Body />
       </TableContainer>
+      <Footer />
     </Container>
   );
 }

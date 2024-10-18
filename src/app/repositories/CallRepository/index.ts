@@ -23,12 +23,25 @@ class CallRepository implements CallRepositoryDTO {
       conditions.push(like(call.response, `%${params.response}%`));
     }
 
+    const page = params.page;
+    const perPage = params.perPage;
+
+    const offset = (page - 1) * perPage;
+
+    const totalCount = await db.$count(call, and(...conditions));
+    const lastPage = Math.ceil(totalCount / params.perPage);
+
     const data = await db.query.call.findMany({
+      limit: perPage,
+      offset: offset,
       where: and(...conditions),
-      orderBy: desc(call.createdAt),
+      orderBy: [desc(call.createdAt)],
     });
 
-    return data.map((item) => Call.restore(item));
+    return {
+      meta: { page, perPage, totalCount, lastPage },
+      data: data.map((item) => Call.restore(item)),
+    };
   }
 
   async findById(id: string) {
@@ -43,7 +56,7 @@ class CallRepository implements CallRepositoryDTO {
       orderBy: asc(call.createdAt),
     });
 
-    if (existingCalls.length >= 10000) {
+    if (existingCalls.length >= 20000) {
       const oldestCall = existingCalls[0];
       await db.delete(call).where(eq(call.id, oldestCall.id));
     }

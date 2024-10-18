@@ -1,15 +1,21 @@
 import { Call } from "~/app/entities";
 
 interface SearchParams {
+  page: number;
+  perPage: number;
+  channelId: string;
+
   method: string | null;
   response: string | null;
   request: string | null;
-  channelId: string;
 }
 
 interface CallRepositoryDTO {
   findById(id: string): Promise<Call | null>;
-  findAll(filters: SearchParams): Promise<Call[]>;
+  findAll(filters: SearchParams): Promise<{
+    meta: { perPage: number; lastPage: number; totalCount: number };
+    data: Call[];
+  }>;
   createCall(data: Call): Promise<Call>;
   deleteAllCalls(channelId: string): Promise<void>;
 }
