@@ -69,6 +69,7 @@ class Channel {
 
   toJson() {
     const formattedCreatedAt = this.createdAt;
+
     if (process.env.NODE_ENV === "production") {
       formattedCreatedAt.setHours(formattedCreatedAt.getHours() - 3);
     }
