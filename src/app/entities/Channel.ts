@@ -68,13 +68,18 @@ class Channel {
   }
 
   toJson() {
+    const formattedCreatedAt = this.createdAt;
+    if (process.env.NODE_ENV === "production") {
+      formattedCreatedAt.setHours(formattedCreatedAt.getHours() - 3);
+    }
+
     return {
       id: this.id,
       name: this.name,
       userId: this.userId,
       createdAt: this.createdAt.toISOString(),
       updatedAt: this.updatedAt.toISOString(),
-      formattedCreatedAt: this.createdAt.toLocaleString("pt-BR"),
+      formattedCreatedAt: formattedCreatedAt,
     };
   }
 }
