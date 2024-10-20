@@ -13,7 +13,16 @@ declare global {
 let db: PostgresJsDatabase<typeof schema>;
 
 if (process.env.NODE_ENV === "production") {
-  db = drizzle(postgres(env.POSTGRES_URL), { schema });
+  db = drizzle(
+    postgres(env.POSTGRES_URL, {
+      max: 2,
+      idle_timeout: 10000,
+      connect_timeout: 2000,
+    }),
+    {
+      schema,
+    }
+  );
 } else {
   if (!global.db) global.db = drizzle(postgres(env.POSTGRES_URL), { schema });
   db = global.db;

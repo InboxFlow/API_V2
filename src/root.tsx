@@ -1,4 +1,8 @@
-import { ModalProvider, ToastProvider } from "@arkyn/components";
+import {
+  DrawerProvider,
+  ModalProvider,
+  ToastProvider,
+} from "@arkyn/components";
 import {
   Links,
   Meta,
@@ -22,9 +26,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <ToastProvider>
-          <ModalProvider>{children}</ModalProvider>
-        </ToastProvider>
+        <DrawerProvider>
+          <ToastProvider>
+            <ModalProvider>{children}</ModalProvider>
+          </ToastProvider>
+        </DrawerProvider>
         <ProgressBar />
         <ScrollRestoration />
         <Scripts />

@@ -2,6 +2,7 @@ import { useAutomation } from "@arkyn/components";
 
 import { CallPageHeader } from "./components/CallPageHeader";
 import { CallTable } from "./components/CallTable";
+import { FilterCallsDrawer } from "./components/FilterCallsDrawer";
 import { ViewCallModal } from "./components/ViewCallModal";
 
 import { OverlayProvider } from "./context";
@@ -15,7 +16,9 @@ function CallPage() {
       <CallPageContainer>
         <CallPageHeader />
         <CallTable />
+
         <ViewCallModal />
+        <FilterCallsDrawer />
       </CallPageContainer>
     </OverlayProvider>
   );
