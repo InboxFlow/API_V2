@@ -16,7 +16,6 @@ function CallPage() {
       <CallPageContainer>
         <CallPageHeader />
         <CallTable />
-
         <ViewCallModal />
         <FilterCallsDrawer />
       </CallPageContainer>

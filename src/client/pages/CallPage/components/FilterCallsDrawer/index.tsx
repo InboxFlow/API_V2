@@ -11,7 +11,7 @@ import {
 import { useOverlay } from "../../context";
 import { FilterCallsDrawerContent } from "./styles";
 import { useLocation, useNavigate } from "@remix-run/react";
-import { REQUEST_METHODS, REQUEST_STATUS } from "~/app/template";
+import { REQUEST_METHODS, REQUEST_STATUS_OPTIONS } from "~/app/template";
 
 function FilterCallsDrawer() {
   const { closeDrawer, drawerIsOpen } = useOverlay().filterCallsDrawer;
@@ -52,8 +52,8 @@ function FilterCallsDrawer() {
           <Select
             name="status"
             defaultValue={getParam("status")}
-            options={REQUEST_STATUS.map((status) => ({
-              label: status + "",
+            options={REQUEST_STATUS_OPTIONS.map((status) => ({
+              label: status.value + " - " + status.label,
               value: status + "",
             }))}
           />

@@ -6,8 +6,9 @@ import { CallLoader } from "~/client/types";
 
 import { useOverlay } from "../../../../context";
 import { MethodBadge } from "../../../MethodBadge";
-import { ActionsColumnContainer } from "./styles";
 import { StatusBadge } from "../../../StatusBadge";
+
+import { ActionsColumnContainer } from "./styles";
 
 function Body() {
   const { calls } = useLoaderData<CallLoader>();
