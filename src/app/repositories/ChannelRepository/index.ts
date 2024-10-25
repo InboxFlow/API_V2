@@ -17,6 +17,18 @@ class ChannelRepository implements ChannelRepositoryDTO {
     return data.map((item) => Channel.restore(item));
   }
 
+  async findCallsCount(params: SearchParams) {
+    const result = await db.query.channel.findMany({
+      where: eq(channel.userId, params.userId),
+      with: { call: { columns: { id: true } } },
+    });
+
+    return result.map((channel) => ({
+      channelId: channel.id,
+      callCount: channel.call.length,
+    }));
+  }
+
   async findById(id: string) {
     const data = await db.query.channel.findFirst({
       where: eq(channel.id, id),

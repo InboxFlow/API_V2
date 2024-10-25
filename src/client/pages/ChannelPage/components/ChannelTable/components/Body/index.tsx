@@ -18,10 +18,10 @@ function Body() {
 
   return (
     <TableBody emptyMessage="No data added.">
-      {channels.map((channel, index) => (
+      {channels.map((channel) => (
         <tr key={channel.id}>
-          <td>{channels.length - index}</td>
           <td>{channel.name}</td>
+          <td>{channel.callsCount}</td>
           <td>{channel.formattedCreatedAt}</td>
 
           <ActionsColumnContainer>
