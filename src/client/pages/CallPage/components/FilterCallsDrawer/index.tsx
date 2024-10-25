@@ -11,6 +11,7 @@ import {
 import { useOverlay } from "../../context";
 import { FilterCallsDrawerContent } from "./styles";
 import { useLocation, useNavigate } from "@remix-run/react";
+import { REQUEST_METHODS, REQUEST_STATUS } from "~/app/template";
 
 function FilterCallsDrawer() {
   const { closeDrawer, drawerIsOpen } = useOverlay().filterCallsDrawer;
@@ -39,12 +40,22 @@ function FilterCallsDrawer() {
           <Select
             name="method"
             defaultValue={getParam("method")}
-            options={[
-              { label: "GET", value: "GET" },
-              { label: "POST", value: "POST" },
-              { label: "PUT", value: "PUT" },
-              { label: "DELETE", value: "DELETE" },
-            ]}
+            options={REQUEST_METHODS.map((method) => ({
+              label: method,
+              value: method,
+            }))}
+          />
+        </FormController>
+
+        <FormController>
+          <FormLabel>Status</FormLabel>
+          <Select
+            name="status"
+            defaultValue={getParam("status")}
+            options={REQUEST_STATUS.map((status) => ({
+              label: status + "",
+              value: status + "",
+            }))}
           />
         </FormController>
 

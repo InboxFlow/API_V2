@@ -7,6 +7,7 @@ import { CallLoader } from "~/client/types";
 import { useOverlay } from "../../../../context";
 import { MethodBadge } from "../../../MethodBadge";
 import { ActionsColumnContainer } from "./styles";
+import { StatusBadge } from "../../../StatusBadge";
 
 function Body() {
   const { calls } = useLoaderData<CallLoader>();
@@ -22,6 +23,9 @@ function Body() {
         <tr key={call.id}>
           <td>
             <MethodBadge method={call.method} />
+          </td>
+          <td>
+            <StatusBadge status={call.status} />
           </td>
           <td>{appendEllipsis(call.request)}</td>
           <td>{appendEllipsis(call.response)}</td>

@@ -4,6 +4,7 @@ function Header() {
   return (
     <TableHeader>
       <th>Method</th>
+      <th>Status</th>
       <th>Request</th>
       <th>Response</th>
       <th>Created at</th>
