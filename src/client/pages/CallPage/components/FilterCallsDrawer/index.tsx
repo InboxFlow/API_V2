@@ -8,10 +8,10 @@ import {
   Textarea,
   useScopedParams,
 } from "@arkyn/components";
-import { useOverlay } from "../../context";
-import { FilterCallsDrawerContent } from "./styles";
 import { useLocation, useNavigate } from "@remix-run/react";
 import { REQUEST_METHODS, REQUEST_STATUS_OPTIONS } from "~/app/template";
+import { useOverlay } from "../../context";
+import { FilterCallsDrawerContent } from "./styles";
 
 function FilterCallsDrawer() {
   const { closeDrawer, drawerIsOpen } = useOverlay().filterCallsDrawer;
@@ -25,6 +25,16 @@ function FilterCallsDrawer() {
     navigate("");
     closeDrawer();
   };
+
+  const requestMappedOptions = REQUEST_METHODS.map((method) => ({
+    label: method,
+    value: method,
+  }));
+
+  const statusMappedOptions = REQUEST_STATUS_OPTIONS.map((status) => ({
+    label: status.value + " - " + status.label,
+    value: status.value + "",
+  }));
 
   return (
     <DrawerContainer
@@ -40,10 +50,7 @@ function FilterCallsDrawer() {
           <Select
             name="method"
             defaultValue={getParam("method")}
-            options={REQUEST_METHODS.map((method) => ({
-              label: method,
-              value: method,
-            }))}
+            options={requestMappedOptions}
           />
         </FormController>
 
@@ -52,10 +59,7 @@ function FilterCallsDrawer() {
           <Select
             name="status"
             defaultValue={getParam("status")}
-            options={REQUEST_STATUS_OPTIONS.map((status) => ({
-              label: status.value + " - " + status.label,
-              value: status + "",
-            }))}
+            options={statusMappedOptions}
           />
         </FormController>
 
