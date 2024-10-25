@@ -8,10 +8,18 @@ class CreateCallUsecase {
 
   async execute(body: any) {
     const validator = new ValidatorAdapter(createCallSchema);
-    const { channelId, method, request, response, token } =
+    const { channelId, method, request, response, token, status } =
       validator.formValidate(body);
 
-    const call = Call.create({ channelId, method, request, response, token });
+    const call = Call.create({
+      status,
+      channelId,
+      method,
+      request,
+      response,
+      token,
+    });
+
     await this.callRepository.createCall(call);
 
     return call.toJson();

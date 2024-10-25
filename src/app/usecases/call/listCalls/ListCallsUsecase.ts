@@ -3,7 +3,7 @@ import { Params } from "@remix-run/react";
 import { CallRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
 import { listCallsSchema } from "~/infra/schemas/callSchemas";
-import { paginationFilter } from "~/main/services";
+import { Number, paginationFilter } from "~/main/services";
 
 class ListCallsUsecase {
   constructor(private callRepository: CallRepository) {}
@@ -15,8 +15,11 @@ class ListCallsUsecase {
     const paginationFilters = paginationFilter(filters);
 
     const method = filters.get("method");
+    const status = filters.get("status");
     const request = filters.get("request");
     const response = filters.get("response");
+
+    const number = new Number();
 
     const calls = await this.callRepository.findAll({
       ...paginationFilters,
@@ -24,6 +27,7 @@ class ListCallsUsecase {
       method,
       request,
       response,
+      status: status ? number.stringToNumber(status) : null,
     });
 
     return {

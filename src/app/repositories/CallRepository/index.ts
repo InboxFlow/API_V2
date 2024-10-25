@@ -11,6 +11,10 @@ class CallRepository implements CallRepositoryDTO {
   async findAll(params: SearchParams) {
     const conditions = [eq(call.channelId, params.channelId)];
 
+    if (params?.status) {
+      conditions.push(eq(call.status, params.status));
+    }
+
     if (params?.method) {
       conditions.push(eq(call.method, params.method));
     }

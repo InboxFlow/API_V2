@@ -1,9 +1,9 @@
 import { generateId } from "@arkyn/shared";
-import { getDateTimeFromDate } from "~/main/services";
 
 type CallConstructorType = {
   id: string;
   token: string;
+  status: number;
   method: string;
   request: string;
   response: string;
@@ -15,6 +15,7 @@ type CallConstructorType = {
 type CallRestoreType = {
   id: string;
   token: string;
+  status: number;
   method: string;
   request: string;
   response: string;
@@ -25,6 +26,7 @@ type CallRestoreType = {
 
 type CallCommandCreateType = {
   token: string;
+  status: number;
   method: string;
   request: string;
   response: string;
@@ -34,6 +36,7 @@ type CallCommandCreateType = {
 class Call {
   id: string;
   token: string;
+  status: number;
   method: string;
   request: string;
   response: string;
@@ -44,6 +47,7 @@ class Call {
   private constructor(props: CallConstructorType) {
     this.id = props.id;
     this.token = props.token;
+    this.status = props.status;
     this.method = props.method;
     this.request = props.request;
     this.response = props.response;
@@ -56,6 +60,7 @@ class Call {
     return new Call({
       id: generateId("text").v7 as string,
       token: props.token,
+      status: props.status,
       method: props.method,
       request: props.request,
       response: props.response,
@@ -69,6 +74,7 @@ class Call {
     return new Call({
       id: props.id,
       token: props.token,
+      status: props.status,
       method: props.method,
       request: props.request,
       response: props.response,
@@ -88,6 +94,7 @@ class Call {
     return {
       id: this.id,
       token: this.token,
+      status: this.status,
       method: this.method,
       request: this.request,
       response: this.response,

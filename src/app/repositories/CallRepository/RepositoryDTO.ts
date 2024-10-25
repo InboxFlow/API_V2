@@ -5,6 +5,7 @@ interface SearchParams {
   perPage: number;
   channelId: string;
 
+  status: number | null;
   method: string | null;
   response: string | null;
   request: string | null;
