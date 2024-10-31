@@ -12,6 +12,7 @@ export async function action(args: LoaderFunctionArgs) {
         throw new NotFoundError("Method not allowed");
     }
   } catch (err) {
+    console.error(err);
     return globalErrorHandler(err);
   }
 }
