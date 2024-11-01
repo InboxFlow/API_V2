@@ -7,9 +7,9 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
-    "drizzle:generate": "bunx drizzle-kit generate",
-    "drizzle:push": "bunx drizzle-kit push",
-    "drizzle:studio": "bun run drizzle-kit studio",
+    "prisma:generate": "bunx prisma  generate",
+    "prisma:push": "bunx prisma db push",
+    "prisma:studio": "bunx prisma studio",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
