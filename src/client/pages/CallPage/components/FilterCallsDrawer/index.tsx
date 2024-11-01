@@ -58,6 +58,7 @@ function FilterCallsDrawer() {
           <FormLabel>Status</FormLabel>
           <Select
             name="status"
+            isSearchable
             defaultValue={getParam("status")}
             options={statusMappedOptions}
           />

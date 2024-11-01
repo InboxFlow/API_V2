@@ -1,1 +1,0 @@
-ALTER TABLE "call" ADD COLUMN "status" numeric NOT NULL;

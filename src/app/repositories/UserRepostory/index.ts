@@ -1,47 +1,44 @@
-import { desc, eq } from "drizzle-orm";
-
 import { User } from "~/app/entities";
 import { userMapper } from "~/app/mappers";
-import { user } from "~/infra/database/tables";
 import { db } from "~/main/services";
 
 import { UserRepositoryDTO } from "./RepositoryDTO";
 
 class UserRepository implements UserRepositoryDTO {
   async findAll() {
-    const data = await db.query.user.findMany({
-      orderBy: desc(user.createdAt),
+    const data = await db.user.findMany({
+      orderBy: { createdAt: "desc" },
     });
 
     return data.map((item) => User.restore(item));
   }
 
   async findById(id: string) {
-    const data = await db.query.user.findFirst({ where: eq(user.id, id) });
+    const data = await db.user.findUnique({ where: { id } });
     if (!data) return null;
     return User.restore(data);
   }
 
   async findByMail(mail: string) {
-    const data = await db.query.user.findFirst({ where: eq(user.mail, mail) });
+    const data = await db.user.findUnique({ where: { mail } });
     if (!data) return null;
     return User.restore(data);
   }
 
   async createUser(data: User) {
     const mappedUser = userMapper(data);
-    await db.insert(user).values(mappedUser);
+    await db.user.create({ data: mappedUser });
     return data;
   }
 
   async updateUser(data: User) {
     const mappedUser = userMapper(data);
-    await db.update(user).set(mappedUser).where(eq(user.id, data.id));
+    await db.user.update({ data: mappedUser, where: { id: data.id } });
     return data;
   }
 
   async deleteUser(id: string) {
-    await db.delete(user).where(eq(user.id, id));
+    await db.user.delete({ where: { id } });
   }
 }
 

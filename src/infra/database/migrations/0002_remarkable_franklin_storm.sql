@@ -1,1 +1,0 @@
-ALTER TABLE "call" ALTER COLUMN "status" SET DATA TYPE integer;
