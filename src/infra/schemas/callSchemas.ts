@@ -4,7 +4,15 @@ import { maskSensitiveData, truncateLargeFields } from "@arkyn/shared";
 import { REQUEST_METHODS, REQUEST_STATUS } from "~/app/template";
 
 function transformData(data: string): string {
-  return truncateLargeFields(maskSensitiveData(data), 10000);
+  return truncateLargeFields(
+    maskSensitiveData(data, [
+      "password",
+      "confirmPassword",
+      "creditCard",
+      "cardInfo",
+    ]),
+    10000
+  );
 }
 
 const createCallSchema = z.object({
