@@ -12,7 +12,6 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -27,6 +26,7 @@ RUN bun install
 # Copy application code
 COPY . .
 
+
 # Build application
 RUN bun --bun run build
 
@@ -40,6 +40,9 @@ FROM base
 
 # Copy built application
 COPY --from=build /app /app
+
+# Generate Prisma client
+RUN bunx prisma generate
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
