@@ -18,6 +18,16 @@ function Body() {
     return text.length > 40 ? `${text.substring(0, 40)}...` : text;
   }
 
+  function extractUrlFromRequest(requestString: string): string {
+    try {
+      const requestObject = JSON.parse(requestString);
+      return requestObject.url || "--";
+    } catch (error) {
+      console.error("Invalid JSON string:", error);
+      return "--";
+    }
+  }
+
   return (
     <TableBody emptyMessage="No data added.">
       {calls.data.map((call) => (
@@ -28,7 +38,7 @@ function Body() {
           <td>
             <StatusBadge status={call.status} />
           </td>
-          <td>{appendEllipsis(call.request)}</td>
+          <td>{extractUrlFromRequest(call.request)}</td>
           <td>{appendEllipsis(call.response)}</td>
           <td>{call.formattedCreatedAt}</td>
 

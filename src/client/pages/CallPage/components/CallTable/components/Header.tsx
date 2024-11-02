@@ -5,7 +5,7 @@ function Header() {
     <TableHeader>
       <th>Method</th>
       <th>Status</th>
-      <th>Request</th>
+      <th>URL</th>
       <th>Response</th>
       <th>Created at</th>
       <th>Actions</th>
