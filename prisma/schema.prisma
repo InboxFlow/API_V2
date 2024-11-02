@@ -20,6 +20,15 @@ model call {
   channel   channel @relation(fields: [channelId], references: [id])
 }
 
+model category {
+  id        String @id
+  name      String
+  createdAt String
+  updatedAt String
+  userId    String
+  user      user   @relation(fields: [userId], references: [id])
+}
+
 model channel {
   id        String @id
   name      String
@@ -31,12 +40,13 @@ model channel {
 }
 
 model user {
-  id        String    @id
+  id        String     @id
   name      String
-  mail      String    @unique(map: "user_mail_unique")
+  mail      String     @unique(map: "user_mail_unique")
   password  String
   verified  Boolean
   createdAt String
   updatedAt String
-  channels  channel[] @relation("channel_users")
+  channels  channel[]  @relation("channel_users")
+  category  category[]
 }
