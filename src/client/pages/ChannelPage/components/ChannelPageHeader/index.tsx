@@ -7,21 +7,26 @@ import { useOverlay } from "../../context";
 import { Content } from "./styles";
 
 function ChannelPageHeader() {
-  const { openModal } = useOverlay().createChannelModal;
-  const handleOpenModal = () => openModal();
+  const { createCategoryModal, createChannelModal } = useOverlay();
 
   return (
-    <PageHeader title="Channels">
+    <PageHeader title="Inbox Flow Admin">
       <Content>
-        <Button leftIcon={Plus} onClick={handleOpenModal}>
-          Add channel
+        <Button
+          leftIcon={Plus}
+          variant="outline"
+          onClick={() => createCategoryModal.openModal()}
+        >
+          Add category
         </Button>
 
-        <IconButton
-          icon={Plus}
-          aria-label="Open create channel modal"
-          onClick={handleOpenModal}
-        />
+        <Button
+          leftIcon={Plus}
+          variant="outline"
+          onClick={() => createChannelModal.openModal()}
+        >
+          Add channel
+        </Button>
       </Content>
     </PageHeader>
   );

@@ -8,9 +8,14 @@ class CreateChannelUsecase {
 
   async execute(body: any, user: User) {
     const validator = new ValidatorAdapter(createChannelSchema);
-    const { name } = validator.formValidate(body);
+    const { name, categoryId } = validator.formValidate(body);
 
-    const channel = Channel.create({ name, userId: user.id });
+    const channel = Channel.create({
+      name,
+      userId: user.id,
+      categoryId: categoryId,
+    });
+
     await this.channelRepository.createChannel(channel);
 
     return channel.toJson();

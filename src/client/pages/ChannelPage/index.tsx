@@ -1,10 +1,11 @@
 import { useAutomation } from "@arkyn/components";
 
+import { CategoryGroup } from "./components/CategoryGroup";
 import { ChannelPageHeader } from "./components/ChannelPageHeader";
-import { ChannelTable } from "./components/ChannelTable";
+import { CreateCategoryModal } from "./components/CreateCategoryModal";
 import { CreateChannelModal } from "./components/CreateChannelModal";
-import { DeleteChannelModal } from "./components/DeleteChannelModal";
-import { UpdateChannelModal } from "./components/UpdateChannelModal";
+import { DeleteCategoryModal } from "./components/DeleteCategoryModal";
+import { UpdateCategoryModal } from "./components/UpdateCategoryModal";
 
 import { OverlayProvider } from "./context";
 import { ChannelPageContainer } from "./styles";
@@ -16,10 +17,11 @@ function ChannelPage() {
     <OverlayProvider>
       <ChannelPageContainer>
         <ChannelPageHeader />
-        <ChannelTable />
+        <CategoryGroup />
+        <CreateCategoryModal />
         <CreateChannelModal />
-        <DeleteChannelModal />
-        <UpdateChannelModal />
+        <DeleteCategoryModal />
+        <UpdateCategoryModal />
       </ChannelPageContainer>
     </OverlayProvider>
   );

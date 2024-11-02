@@ -21,22 +21,25 @@ model call {
 }
 
 model category {
-  id        String @id
+  id        String    @id
   name      String
   createdAt String
   updatedAt String
   userId    String
-  user      user   @relation(fields: [userId], references: [id])
+  user      user      @relation(fields: [userId], references: [id])
+  channels  channel[]
 }
 
 model channel {
-  id        String @id
-  name      String
-  userId    String
-  createdAt String
-  updatedAt String
-  user      user   @relation("channel_users", fields: [userId], references: [id])
-  calls     call[]
+  id         String   @id
+  name       String
+  userId     String
+  createdAt  String
+  updatedAt  String
+  categoryId String   @default("0")
+  user       user     @relation("channel_users", fields: [userId], references: [id])
+  category   category @relation(fields: [categoryId], references: [id])
+  calls      call[]
 }
 
 model user {

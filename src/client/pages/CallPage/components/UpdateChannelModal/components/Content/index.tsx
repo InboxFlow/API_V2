@@ -3,15 +3,25 @@ import {
   FormError,
   FormLabel,
   Input,
+  Select,
   useToast,
 } from "@arkyn/components";
 
-import { useOverlay } from "~/client/pages/ChannelPage/context";
+import { useOverlay } from "../../../../context";
 import { ContentContainer } from "./styles";
+import { useLoaderData } from "@remix-run/react";
+import { CallLoader } from "~/client/types";
 
 function Content() {
   const { modalData } = useOverlay().updateChannelModal;
   const { showToast } = useToast();
+
+  const { categories } = useLoaderData<CallLoader>();
+
+  const mappedCategories = categories.map((category) => ({
+    label: category.name,
+    value: category.id,
+  }));
 
   function handleCopyChannelId() {
     const channelId = modalData?.id;
@@ -33,6 +43,17 @@ function Content() {
           name="name"
           defaultValue={modalData?.name}
           autoComplete="name"
+        />
+        <FormError />
+      </FormController>
+
+      <FormController>
+        <FormLabel showAsterisk>Category:</FormLabel>
+        <Select
+          isSearchable
+          name="categoryId"
+          defaultValue={modalData?.categoryId}
+          options={mappedCategories}
         />
         <FormError />
       </FormController>

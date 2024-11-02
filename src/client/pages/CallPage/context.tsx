@@ -1,11 +1,13 @@
 import { useAutomation, useDrawer, useModal } from "@arkyn/components";
 import { createContext, ReactNode, useContext } from "react";
 
-import { CallModel } from "~/client/models";
+import { CallModel, ChannelModel } from "~/client/models";
 
 type OverlayContextType = {
   viewCallModal: ReturnType<typeof useModal<CallModel>>;
-  filterCallsDrawer: ReturnType<typeof useDrawer>;
+  filterCallsDrawer: ReturnType<typeof useDrawer<null>>;
+  updateChannelModal: ReturnType<typeof useModal<ChannelModel>>;
+  deleteChannelModal: ReturnType<typeof useModal<ChannelModel>>;
 };
 
 const OverlayContext = createContext<OverlayContextType>(
@@ -22,12 +24,16 @@ const OverlayProvider = ({ children }: { children: ReactNode }) => {
 
   const viewCallModalKey = "VIEW_CALL_MODAL";
   const filterCallsModalKey = "FILTER_CALLS_DRAWER";
+  const updateChannelKey = "UPDATE_CHANNEL_MODAL";
+  const deleteChannelKey = "DELETE_CHANNEL_MODAL";
 
   return (
     <OverlayContext.Provider
       value={{
         viewCallModal: useModal(viewCallModalKey),
         filterCallsDrawer: useDrawer(filterCallsModalKey),
+        updateChannelModal: useModal(updateChannelKey),
+        deleteChannelModal: useModal(deleteChannelKey),
       }}
     >
       {children}

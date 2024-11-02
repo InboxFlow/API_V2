@@ -4,7 +4,7 @@ import { useNavigation } from "@remix-run/react";
 import { useOverlay } from "../../../context";
 
 function Footer() {
-  const { closeModal } = useOverlay().createChannelModal;
+  const { closeModal } = useOverlay().createCategoryModal;
   const { state } = useNavigation();
 
   return (
@@ -17,7 +17,7 @@ function Footer() {
       >
         Cancel
       </Button>
-      <Button isLoading={state !== "idle"}>Create channel</Button>
+      <Button isLoading={state !== "idle"}>Create category</Button>
     </ModalFooter>
   );
 }

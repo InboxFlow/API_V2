@@ -3,12 +3,14 @@ import { styled } from "@linaria/react";
 const PageHeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
 
   > .header_section {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    margin-right: auto;
 
     h1 {
       font-size: 24px;

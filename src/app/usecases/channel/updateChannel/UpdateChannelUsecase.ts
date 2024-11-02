@@ -10,12 +10,15 @@ class UpdateChannelUsecase {
   async execute(body: any, params: any) {
     const validator = new ValidatorAdapter(updateChannelSchema);
 
-    const { name, channelId } = validator.formValidate({ ...body, ...params });
+    const { name, channelId, categoryId } = validator.formValidate({
+      ...body,
+      ...params,
+    });
 
     const channel = await this.channelRepository.findById(channelId);
     if (!channel) throw new BadRequestError("Channel not found");
 
-    channel.update({ name });
+    channel.update({ name, categoryId });
 
     await this.channelRepository.updateChannel(channel);
 

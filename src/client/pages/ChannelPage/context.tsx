@@ -1,12 +1,13 @@
-import { useAutomation, useDrawer, useModal } from "@arkyn/components";
+import { useAutomation, useModal } from "@arkyn/components";
 import { createContext, ReactNode, useContext } from "react";
 
-import { ChannelModel } from "~/client/models";
+import { ChannelModel, CategoryModel } from "~/client/models";
 
 type OverlayContextType = {
+  createCategoryModal: ReturnType<typeof useModal<CategoryModel>>;
+  updateCategoryModal: ReturnType<typeof useModal<CategoryModel>>;
+  deleteCategoryModal: ReturnType<typeof useModal<CategoryModel>>;
   createChannelModal: ReturnType<typeof useModal<ChannelModel>>;
-  updateChannelModal: ReturnType<typeof useModal<ChannelModel>>;
-  deleteChannelModal: ReturnType<typeof useModal<ChannelModel>>;
 };
 
 const OverlayContext = createContext<OverlayContextType>(
@@ -21,16 +22,18 @@ const useOverlay = () => {
 const OverlayProvider = ({ children }: { children: ReactNode }) => {
   useAutomation();
 
-  const createChannelKey = "CREATE_EVENT_HOST_MODAL";
-  const updateChannelKey = "UPDATE_EVENT_HOST_MODAL";
-  const deleteChannelKey = "DELETE_EVENT_HOST_MODAL";
+  const createCategoryKey = "CREATE_CATEGORY_MODAL";
+  const updateCategoryKey = "UPDATE_CATEGORY_MODAL";
+  const deleteCategoryKey = "DELETE_CATEGORY_MODAL";
+  const createChannelKey = "CREATE_CHANNEL_MODAL";
 
   return (
     <OverlayContext.Provider
       value={{
+        createCategoryModal: useModal(createCategoryKey),
+        updateCategoryModal: useModal(updateCategoryKey),
+        deleteCategoryModal: useModal(deleteCategoryKey),
         createChannelModal: useModal(createChannelKey),
-        updateChannelModal: useModal(updateChannelKey),
-        deleteChannelModal: useModal(deleteChannelKey),
       }}
     >
       {children}
