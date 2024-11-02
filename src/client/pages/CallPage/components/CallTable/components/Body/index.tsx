@@ -14,8 +14,8 @@ function Body() {
   const { calls } = useLoaderData<CallLoader>();
   const { openModal } = useOverlay().viewCallModal;
 
-  function appendEllipsis(text: string) {
-    return text.length > 40 ? `${text.substring(0, 40)}...` : text;
+  function appendEllipsis(text: string, size = 40): string {
+    return text.length > size ? `${text.substring(0, size)}...` : text;
   }
 
   function extractUrlFromRequest(requestString: string): string {
@@ -38,7 +38,7 @@ function Body() {
           <td>
             <StatusBadge status={call.status} />
           </td>
-          <td>{extractUrlFromRequest(call.request)}</td>
+          <td>{appendEllipsis(extractUrlFromRequest(call.request), 100)}</td>
           <td>{appendEllipsis(call.response)}</td>
           <td>{call.formattedCreatedAt}</td>
 
