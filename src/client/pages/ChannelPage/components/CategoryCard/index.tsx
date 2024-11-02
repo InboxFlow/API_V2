@@ -16,8 +16,12 @@ type CategoryCardProps = {
 function CategoryCard(props: CategoryCardProps) {
   const { name, id } = props.data;
 
-  const { channels } = useLoaderData<ChannelLoader>();
+  const loaderData = useLoaderData<ChannelLoader>();
   const { deleteCategoryModal, updateCategoryModal } = useOverlay();
+
+  const channels = loaderData.channels.filter(
+    ({ categoryId }) => categoryId === id
+  );
 
   return (
     <CategoryCardContainer>
@@ -40,17 +44,17 @@ function CategoryCard(props: CategoryCardProps) {
             size="sm"
             scheme="danger"
             icon={Trash}
+            disabled={channels.length > 0}
+            title={channels.length > 0 ? "Category has channels" : ""}
             onClick={() => deleteCategoryModal.openModal(props.data)}
           />
         </div>
       </header>
 
       <ul>
-        {channels
-          .filter((channel) => channel.categoryId === id)
-          .map((channel) => (
-            <ChannelCard key={channel.id} data={channel} />
-          ))}
+        {channels.map((channel) => (
+          <ChannelCard key={channel.id} data={channel} />
+        ))}
       </ul>
     </CategoryCardContainer>
   );

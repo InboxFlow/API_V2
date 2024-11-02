@@ -26,6 +26,18 @@ class ChannelRepository implements ChannelRepositoryDTO {
     return Channel.restore({ ...data, callsCount: data._count.calls });
   }
 
+  async findChannelsByCategoryId(categoryId: string) {
+    const data = await db.channel.findMany({
+      where: { categoryId },
+      orderBy: { name: "asc" },
+      include: { _count: { select: { calls: true } } },
+    });
+
+    return data.map((item) =>
+      Channel.restore({ ...item, callsCount: item._count.calls })
+    );
+  }
+
   async createChannel(data: Channel) {
     const mappedChannel = channelMapper(data);
     await db.channel.create({ data: mappedChannel });
