@@ -1,22 +1,14 @@
-import { IconButton, Input, useScopedParams } from "@arkyn/components";
-import { useNavigate } from "@remix-run/react";
-import { Filter, Search } from "lucide-react";
-
-import { CaptionContainer } from "./styles";
+import { IconButton } from "@arkyn/components";
+import { Filter } from "lucide-react";
 import { useOverlay } from "~/client/pages/CallPage/context";
+import { CaptionContainer } from "./styles";
 
 function Caption() {
-  const navigate = useNavigate();
   const { openDrawer } = useOverlay().filterCallsDrawer;
-
-  const { getParam, getScopedSearch } = useScopedParams();
-
-  const defaultSearch = getParam("search") || "";
-  const handleSearch = (e: string) => navigate(getScopedSearch({ search: e }));
 
   return (
     <CaptionContainer>
-      <div></div>
+      <strong>Calls list</strong>
 
       <IconButton
         icon={Filter}
