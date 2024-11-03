@@ -44,16 +44,6 @@ class CallRepository implements CallRepositoryDTO {
   }
 
   async createCall(data: Call) {
-    const existsCalls = await db.call.findMany({
-      where: { channelId: data.channelId },
-      orderBy: { createdAt: "asc" },
-    });
-
-    if (existsCalls.length >= 10000) {
-      const oldestCall = existsCalls[0];
-      await db.call.delete({ where: { id: oldestCall.id } });
-    }
-
     const mappedCall = callMapper(data);
     await db.call.create({ data: mappedCall });
 
