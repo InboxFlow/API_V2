@@ -6,7 +6,7 @@ const ContentContainer = styled.div`
 
   min-width: 500px;
   padding: 16px;
-  gap: 16px;
+  gap: 8px;
 
   .lineContainer {
     display: flex;
@@ -42,12 +42,19 @@ const ContentContainer = styled.div`
 
     pre {
       max-width: 1000px;
-      overflow: auto;
-      background-color: var(--border);
+      min-width: 1000px;
       padding: 16px;
-      border-radius: var(--rounded-cards);
-      font-family: "Courier New", Courier, monospace; /* Fonte monoespaçada */
-      font-size: 12px; /* Ajuste o tamanho da fonte conforme necessário */
+      border: 1px solid var(--border);
+      background-color: var(--card-foreground-primary);
+      border-radius: var(--rounded-inputs);
+      overflow: auto;
+
+      code {
+        font-family: "Fira code", Courier, monospace;
+        font-size: 12px;
+        color: var(--text-heading);
+        font-weight: 500;
+      }
     }
   }
 

@@ -6,7 +6,6 @@ function Header() {
       <th>Method</th>
       <th>Status</th>
       <th>URL</th>
-      <th>Response</th>
       <th>Created at</th>
       <th>Actions</th>
     </TableHeader>

@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { Eye } from "lucide-react";
 
 import { CallLoader } from "~/client/types";
+import { extractUrlFromJson } from "~/main/services/extractUrlFromJson";
 
 import { useOverlay } from "../../../../context";
 import { MethodBadge } from "../../../MethodBadge";
@@ -18,16 +19,6 @@ function Body() {
     return text.length > size ? `${text.substring(0, size)}...` : text;
   }
 
-  function extractUrlFromRequest(requestString: string): string {
-    try {
-      const requestObject = JSON.parse(requestString);
-      return requestObject.url || "--";
-    } catch (error) {
-      console.error("Invalid JSON string:", error);
-      return "--";
-    }
-  }
-
   return (
     <TableBody emptyMessage="No data added.">
       {calls.data.map((call) => (
@@ -38,18 +29,17 @@ function Body() {
           <td>
             <StatusBadge status={call.status} />
           </td>
-          <td>{appendEllipsis(extractUrlFromRequest(call.request), 100)}</td>
-          <td>{appendEllipsis(call.response)}</td>
+          <td>{appendEllipsis(extractUrlFromJson(call.request), 150)}</td>
           <td>{call.formattedCreatedAt}</td>
 
           <ActionsColumnContainer>
             <div>
-              <Tooltip text="View calls" orientation="left">
+              <Tooltip text="View details" orientation="left">
                 <IconButton
                   icon={Eye}
                   variant="invisible"
                   size="sm"
-                  aria-label="View call modal"
+                  aria-label="View call details"
                   onClick={() => openModal(call)}
                 />
               </Tooltip>
