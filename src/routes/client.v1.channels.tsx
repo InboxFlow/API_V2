@@ -5,6 +5,8 @@ import { listChannels } from "~/app/usecases/channel/listChannels";
 import { ChannelPage } from "~/client/pages/ChannelPage";
 
 export const loader = async (context: LoaderFunctionArgs) => {
+  // throw new Error("Ops, something went wrong");
+
   const [channels, categories] = await Promise.all([
     listChannels.handle(context),
     listCategories.handle(context),

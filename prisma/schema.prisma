@@ -13,10 +13,21 @@ model call {
   request   String
   response  String
   token     String
-  channelId String
   createdAt String
   updatedAt String
   status    Int
+  channelId String
+  channel   channel @relation(fields: [channelId], references: [id])
+}
+
+model errorLog {
+  id        String  @id
+  message   String
+  request   String
+  params    String
+  createdAt String
+  updatedAt String
+  channelId String
   channel   channel @relation(fields: [channelId], references: [id])
 }
 
@@ -31,15 +42,16 @@ model category {
 }
 
 model channel {
-  id         String   @id
+  id         String     @id
   name       String
   userId     String
   createdAt  String
   updatedAt  String
-  categoryId String   @default("0")
-  user       user     @relation("channel_users", fields: [userId], references: [id])
-  category   category @relation(fields: [categoryId], references: [id])
+  categoryId String     @default("0")
+  user       user       @relation("channel_users", fields: [userId], references: [id])
+  category   category   @relation(fields: [categoryId], references: [id])
   calls      call[]
+  errors     errorLog[]
 }
 
 model user {
