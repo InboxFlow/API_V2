@@ -20,7 +20,8 @@ const ChannelCardContainer = styled(Link)`
     gap: 6px;
 
     strong {
-      font-size: 16px;
+      white-space: nowrap;
+      font-size: 14px;
       font-weight: 600;
       line-height: 16px;
       text-align: left;
@@ -37,7 +38,7 @@ const ChannelCardContainer = styled(Link)`
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 16px;
     text-align: right;

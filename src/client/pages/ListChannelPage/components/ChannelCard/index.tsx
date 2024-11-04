@@ -20,7 +20,7 @@ function ChannelCard(props: ChannelCardProps) {
       </div>
 
       <p>
-        {callsCount} - <span>{errorLogsCount}</span>
+        {callsCount} {errorLogsCount > 0 && <span> - {errorLogsCount}</span>}
       </p>
     </ChannelCardContainer>
   );
