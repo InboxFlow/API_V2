@@ -10,21 +10,22 @@ datasource db {
 model call {
   id        String  @id
   method    String
+  token     String
+  status    Int
   request   String
   response  String
-  token     String
   createdAt String
   updatedAt String
-  status    Int
   channelId String
   channel   channel @relation(fields: [channelId], references: [id])
 }
 
 model errorLog {
   id        String  @id
+  method    String
   message   String
-  request   String
   params    String
+  request   String
   createdAt String
   updatedAt String
   channelId String

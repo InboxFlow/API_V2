@@ -19,22 +19,6 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
 
-export function handleError(
-  error: any,
-  params: LoaderFunctionArgs | ActionFunctionArgs
-) {
-  console.log("0000");
-  console.log(error);
-  console.log(params);
-  console.log(1111);
-  // console.log(2222);
-  // console.log(error.statusText);
-  // console.log(3333);
-  // console.log("OPA PEGUEI O ERRO 1");
-  // console.error(error);
-  // console.log("OPA PEGUEI O ERRO 2");
-}
-
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,

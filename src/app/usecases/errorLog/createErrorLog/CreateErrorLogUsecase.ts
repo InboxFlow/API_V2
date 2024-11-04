@@ -8,10 +8,11 @@ class CreateErrorLogUsecase {
 
   async execute(body: any) {
     const validator = new ValidatorAdapter(createErrorLogSchema);
-    const { channelId, message, params, request } =
+    const { channelId, message, params, request, method } =
       validator.formValidate(body);
 
     const errorLog = ErrorLog.create({
+      method,
       message,
       channelId,
       params,

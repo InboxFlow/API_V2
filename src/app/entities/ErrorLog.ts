@@ -2,6 +2,7 @@ import { generateId } from "@arkyn/shared";
 
 type ErrorLogConstructorType = {
   id: string;
+  method: string;
   message: string;
   request: string;
   params: string;
@@ -12,6 +13,7 @@ type ErrorLogConstructorType = {
 
 type ErrorLogRestoreType = {
   id: string;
+  method: string;
   message: string;
   request: string;
   params: string;
@@ -21,6 +23,7 @@ type ErrorLogRestoreType = {
 };
 
 type ErrorLogCommandCreateType = {
+  method: string;
   message: string;
   request: string;
   params: string;
@@ -29,6 +32,7 @@ type ErrorLogCommandCreateType = {
 
 class ErrorLog {
   id: string;
+  method: string;
   message: string;
   request: string;
   params: string;
@@ -38,6 +42,7 @@ class ErrorLog {
 
   private constructor(props: ErrorLogConstructorType) {
     this.id = props.id;
+    this.method = props.method;
     this.message = props.message;
     this.params = props.params;
     this.request = props.request;
@@ -49,6 +54,7 @@ class ErrorLog {
   static create(props: ErrorLogCommandCreateType): ErrorLog {
     return new ErrorLog({
       id: generateId("text").v7 as string,
+      method: props.method,
       message: props.message,
       params: props.params,
       request: props.request,
@@ -61,6 +67,7 @@ class ErrorLog {
   static restore(props: ErrorLogRestoreType): ErrorLog {
     return new ErrorLog({
       id: props.id,
+      method: props.method,
       request: props.request,
       params: props.params,
       message: props.message,
@@ -79,6 +86,7 @@ class ErrorLog {
 
     return {
       id: this.id,
+      method: this.method,
       message: this.message,
       request: this.request,
       params: this.params,
