@@ -1,4 +1,4 @@
-import { loader } from "../../routes/client.v1.calls.$channelId";
+import { loader } from "../../routes/client.v1.channel.$channelId.calls";
 
 type CallLoader = Awaited<ReturnType<typeof loader>>;
 

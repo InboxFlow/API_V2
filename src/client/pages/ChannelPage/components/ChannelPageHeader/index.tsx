@@ -1,33 +1,45 @@
 import { Button, IconButton } from "@arkyn/components";
-import { Plus } from "lucide-react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
+import { ArrowLeft, Pen, Trash } from "lucide-react";
 
 import { PageHeader } from "~/client/components";
-
+import { ChannelLoader } from "~/client/types";
 import { useOverlay } from "../../context";
-import { Content } from "./styles";
 
 function ChannelPageHeader() {
-  const { createCategoryModal, createChannelModal } = useOverlay();
+  const { channel } = useLoaderData<ChannelLoader>();
+  const title = `${channel.name}`;
+
+  const { updateChannelModal, deleteChannelModal } = useOverlay();
+
+  const navigate = useNavigate();
+  function navigateToChannels() {
+    navigate("/client/v1/channels");
+  }
 
   return (
-    <PageHeader title="Inbox Flow Admin">
-      <Content>
-        <Button
-          leftIcon={Plus}
-          variant="outline"
-          onClick={() => createCategoryModal.openModal()}
-        >
-          Add category
-        </Button>
+    <PageHeader title={title}>
+      <Button
+        leftIcon={ArrowLeft}
+        variant="outline"
+        onClick={navigateToChannels}
+      >
+        Back to admin
+      </Button>
 
-        <Button
-          leftIcon={Plus}
-          variant="outline"
-          onClick={() => createChannelModal.openModal()}
-        >
-          Add channel
-        </Button>
-      </Content>
+      <IconButton
+        aria-label="Edit channel"
+        variant="outline"
+        icon={Pen}
+        onClick={() => updateChannelModal.openModal(channel)}
+      />
+
+      <IconButton
+        aria-label="Delete channel"
+        variant="outline"
+        icon={Trash}
+        onClick={() => deleteChannelModal.openModal(channel)}
+      />
     </PageHeader>
   );
 }

@@ -1,10 +1,7 @@
 import { useAutomation } from "@arkyn/components";
 
-import { CallPageHeader } from "./components/CallPageHeader";
 import { CallTable } from "./components/CallTable";
-import { DeleteChannelModal } from "./components/DeleteChannelModal";
 import { FilterCallsDrawer } from "./components/FilterCallsDrawer";
-import { UpdateChannelModal } from "./components/UpdateChannelModal";
 import { ViewCallModal } from "./components/ViewCallModal";
 
 import { OverlayProvider } from "./context";
@@ -16,12 +13,9 @@ function CallPage() {
   return (
     <OverlayProvider>
       <CallPageContainer>
-        <CallPageHeader />
         <CallTable />
         <ViewCallModal />
         <FilterCallsDrawer />
-        <DeleteChannelModal />
-        <UpdateChannelModal />
       </CallPageContainer>
     </OverlayProvider>
   );

@@ -1,12 +1,10 @@
 import { useAutomation } from "@arkyn/components";
 
-import { CategoryGroup } from "./components/CategoryGroup";
 import { ChannelPageHeader } from "./components/ChannelPageHeader";
-import { CreateCategoryModal } from "./components/CreateCategoryModal";
-import { CreateChannelModal } from "./components/CreateChannelModal";
-import { DeleteCategoryModal } from "./components/DeleteCategoryModal";
-import { UpdateCategoryModal } from "./components/UpdateCategoryModal";
+import { DeleteChannelModal } from "./components/DeleteChannelModal";
+import { UpdateChannelModal } from "./components/UpdateChannelModal";
 
+import { Outlet } from "@remix-run/react";
 import { OverlayProvider } from "./context";
 import { ChannelPageContainer } from "./styles";
 
@@ -17,11 +15,9 @@ function ChannelPage() {
     <OverlayProvider>
       <ChannelPageContainer>
         <ChannelPageHeader />
-        <CategoryGroup />
-        <CreateCategoryModal />
-        <CreateChannelModal />
-        <DeleteCategoryModal />
-        <UpdateCategoryModal />
+        <Outlet />
+        <DeleteChannelModal />
+        <UpdateChannelModal />
       </ChannelPageContainer>
     </OverlayProvider>
   );

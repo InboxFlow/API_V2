@@ -3,31 +3,27 @@ import { formatToEllipsis } from "@arkyn/shared";
 import { useLoaderData } from "@remix-run/react";
 import { Eye } from "lucide-react";
 
-import { CallLoader } from "~/client/types";
+import { ErrorLogLoader } from "~/client/types";
 import { extractUrlFromJson } from "~/main/services/extractUrlFromJson";
 
 import { useOverlay } from "../../../../context";
-import { MethodBadge } from "../../../MethodBadge";
-import { StatusBadge } from "../../../StatusBadge";
+// import { MethodBadge } from "../../../MethodBadge";
+// import { StatusBadge } from "../../../StatusBadge";
 
 import { ActionsColumnContainer } from "./styles";
 
 function Body() {
-  const { calls } = useLoaderData<CallLoader>();
-  const { openModal } = useOverlay().viewCallModal;
+  const { errorLogs } = useLoaderData<ErrorLogLoader>();
+  const { openModal } = useOverlay().viewErrorLogModal;
 
   return (
     <TableBody emptyMessage="No data added.">
-      {calls.data.map((call) => (
-        <tr key={call.id}>
-          <td>
-            <MethodBadge method={call.method} />
-          </td>
-          <td>
-            <StatusBadge status={call.status} />
-          </td>
-          <td>{formatToEllipsis(extractUrlFromJson(call.request), 150)}</td>
-          <td>{call.formattedCreatedAt}</td>
+      {errorLogs.data.map((errorLog) => (
+        <tr key={errorLog.id}>
+          <td>{/* <MethodBadge method={errorLog.method} /> */}</td>
+          <td>{/* <StatusBadge status={errorLog.status} /> */}</td>
+          <td>{formatToEllipsis(extractUrlFromJson(errorLog.request), 150)}</td>
+          <td>{errorLog.formattedCreatedAt}</td>
 
           <ActionsColumnContainer>
             <div>
@@ -36,8 +32,8 @@ function Body() {
                   icon={Eye}
                   variant="invisible"
                   size="sm"
-                  aria-label="View call details"
-                  onClick={() => openModal(call)}
+                  aria-label="View errorLog details"
+                  onClick={() => openModal(errorLog)}
                 />
               </Tooltip>
             </div>

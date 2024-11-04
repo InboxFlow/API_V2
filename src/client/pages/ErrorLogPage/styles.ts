@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
 
-const CallPageContainer = styled.main`
+const ErrorLogPageContainer = styled.main`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -11,4 +11,4 @@ const CallPageContainer = styled.main`
   }
 `;
 
-export { CallPageContainer };
+export { ErrorLogPageContainer };

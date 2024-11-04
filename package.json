@@ -16,10 +16,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@arkyn/components": "^1.3.149",
-    "@arkyn/server": "^1.3.149",
-    "@arkyn/shared": "^1.3.149",
-    "@arkyn/types": "^1.3.149",
+    "@arkyn/components": "^1.3.150",
+    "@arkyn/server": "^1.3.150",
+    "@arkyn/shared": "^1.3.150",
+    "@arkyn/types": "^1.3.150",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@prisma/client": "^5.21.1",

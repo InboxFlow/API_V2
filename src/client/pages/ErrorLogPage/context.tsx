@@ -1,11 +1,11 @@
 import { useAutomation, useDrawer, useModal } from "@arkyn/components";
 import { createContext, ReactNode, useContext } from "react";
 
-import { CallModel } from "~/client/models";
+import { ErrorLogModel } from "~/client/models";
 
 type OverlayContextType = {
-  viewCallModal: ReturnType<typeof useModal<CallModel>>;
-  filterCallsDrawer: ReturnType<typeof useDrawer<null>>;
+  viewErrorLogModal: ReturnType<typeof useModal<ErrorLogModel>>;
+  filterErrorLogsDrawer: ReturnType<typeof useDrawer<null>>;
 };
 
 const OverlayContext = createContext<OverlayContextType>(
@@ -20,14 +20,14 @@ const useOverlay = () => {
 const OverlayProvider = ({ children }: { children: ReactNode }) => {
   useAutomation();
 
-  const viewCallModalKey = "VIEW_CALL_MODAL";
-  const filterCallsModalKey = "FILTER_CALLS_DRAWER";
+  const viewErrorLogModalKey = "VIEW_ERROR_LOG_MODAL";
+  const filterErrorLogsModalKey = "FILTER_ERROR_LOGS_DRAWER";
 
   return (
     <OverlayContext.Provider
       value={{
-        viewCallModal: useModal(viewCallModalKey),
-        filterCallsDrawer: useDrawer(filterCallsModalKey),
+        viewErrorLogModal: useModal(viewErrorLogModalKey),
+        filterErrorLogsDrawer: useDrawer(filterErrorLogsModalKey),
       }}
     >
       {children}

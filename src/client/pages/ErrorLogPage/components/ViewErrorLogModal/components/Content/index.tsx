@@ -3,24 +3,24 @@ import { formatJsonString } from "@arkyn/shared";
 import { extractUrlFromJson } from "~/main/services/extractUrlFromJson";
 
 import { useOverlay } from "../../../../context";
-import { MethodBadge } from "../../../MethodBadge";
-import { StatusBadge } from "../../../StatusBadge";
+// import { MethodBadge } from "../../../MethodBadge";
+// import { StatusBadge } from "../../../StatusBadge";
 import { ContentContainer } from "./styles";
 
 function Content() {
-  const { modalData } = useOverlay().viewCallModal;
+  const { modalData } = useOverlay().viewErrorLogModal;
   if (!modalData) return <></>;
 
   return (
     <ContentContainer>
       <div className="lineContainer">
         <strong>Method:</strong>
-        <MethodBadge method={modalData.method} />
+        {/* <MethodBadge method={modalData.method} /> */}
       </div>
 
       <div className="lineContainer">
         <strong>Status:</strong>
-        <StatusBadge status={modalData.status} />
+        {/* <StatusBadge status={modalData.status} /> */}
       </div>
 
       <div className="lineContainer">
@@ -37,13 +37,6 @@ function Content() {
         <strong>Request:</strong>
         <pre>
           <code>{formatJsonString(modalData.request)}</code>
-        </pre>
-      </div>
-
-      <div className="columnContainer">
-        <strong>Response:</strong>
-        <pre>
-          <code>{formatJsonString(modalData.response)}</code>
         </pre>
       </div>
     </ContentContainer>

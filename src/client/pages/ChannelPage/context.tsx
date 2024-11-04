@@ -1,13 +1,13 @@
-import { useAutomation, useModal } from "@arkyn/components";
+import { useAutomation, useDrawer, useModal } from "@arkyn/components";
 import { createContext, ReactNode, useContext } from "react";
 
-import { ChannelModel, CategoryModel } from "~/client/models";
+import { CallModel, ChannelModel } from "~/client/models";
 
 type OverlayContextType = {
-  createCategoryModal: ReturnType<typeof useModal<CategoryModel>>;
-  updateCategoryModal: ReturnType<typeof useModal<CategoryModel>>;
-  deleteCategoryModal: ReturnType<typeof useModal<CategoryModel>>;
-  createChannelModal: ReturnType<typeof useModal<ChannelModel>>;
+  viewCallModal: ReturnType<typeof useModal<CallModel>>;
+  filterCallsDrawer: ReturnType<typeof useDrawer<null>>;
+  updateChannelModal: ReturnType<typeof useModal<ChannelModel>>;
+  deleteChannelModal: ReturnType<typeof useModal<ChannelModel>>;
 };
 
 const OverlayContext = createContext<OverlayContextType>(
@@ -22,18 +22,18 @@ const useOverlay = () => {
 const OverlayProvider = ({ children }: { children: ReactNode }) => {
   useAutomation();
 
-  const createCategoryKey = "CREATE_CATEGORY_MODAL";
-  const updateCategoryKey = "UPDATE_CATEGORY_MODAL";
-  const deleteCategoryKey = "DELETE_CATEGORY_MODAL";
-  const createChannelKey = "CREATE_CHANNEL_MODAL";
+  const viewCallModalKey = "VIEW_CALL_MODAL";
+  const filterCallsModalKey = "FILTER_CALLS_DRAWER";
+  const updateChannelKey = "UPDATE_CHANNEL_MODAL";
+  const deleteChannelKey = "DELETE_CHANNEL_MODAL";
 
   return (
     <OverlayContext.Provider
       value={{
-        createCategoryModal: useModal(createCategoryKey),
-        updateCategoryModal: useModal(updateCategoryKey),
-        deleteCategoryModal: useModal(deleteCategoryKey),
-        createChannelModal: useModal(createChannelKey),
+        viewCallModal: useModal(viewCallModalKey),
+        filterCallsDrawer: useDrawer(filterCallsModalKey),
+        updateChannelModal: useModal(updateChannelKey),
+        deleteChannelModal: useModal(deleteChannelKey),
       }}
     >
       {children}
