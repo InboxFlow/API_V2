@@ -7,8 +7,7 @@ import { ErrorLogLoader } from "~/client/types";
 import { extractUrlFromJson } from "~/main/services/extractUrlFromJson";
 
 import { useOverlay } from "../../../../context";
-// import { MethodBadge } from "../../../MethodBadge";
-// import { StatusBadge } from "../../../StatusBadge";
+import { MethodBadge } from "../../../MethodBadge";
 
 import { ActionsColumnContainer } from "./styles";
 
@@ -20,8 +19,9 @@ function Body() {
     <TableBody emptyMessage="No data added.">
       {errorLogs.data.map((errorLog) => (
         <tr key={errorLog.id}>
-          <td>{/* <MethodBadge method={errorLog.method} /> */}</td>
-          <td>{/* <StatusBadge status={errorLog.status} /> */}</td>
+          <td>
+            <MethodBadge method={errorLog.method} />
+          </td>
           <td>{formatToEllipsis(extractUrlFromJson(errorLog.request), 150)}</td>
           <td>{errorLog.formattedCreatedAt}</td>
 

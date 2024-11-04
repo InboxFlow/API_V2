@@ -8,6 +8,7 @@ function Caption() {
 
   return (
     <CaptionContainer>
+      <div></div>
       <IconButton
         icon={Filter}
         variant="outline"

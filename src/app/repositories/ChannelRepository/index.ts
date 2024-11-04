@@ -9,32 +9,44 @@ class ChannelRepository implements ChannelRepositoryDTO {
     const data = await db.channel.findMany({
       where: { userId: params.userId },
       orderBy: { name: "asc" },
-      include: { _count: { select: { calls: true } } },
+      include: { _count: { select: { calls: true, errors: true } } },
     });
 
     return data.map((item) =>
-      Channel.restore({ ...item, callsCount: item._count.calls })
+      Channel.restore({
+        ...item,
+        callsCount: item._count.calls,
+        errorLogsCount: item._count.errors,
+      })
     );
   }
 
   async findById(id: string) {
     const data = await db.channel.findUnique({
       where: { id },
-      include: { _count: { select: { calls: true } } },
+      include: { _count: { select: { calls: true, errors: true } } },
     });
     if (!data) return null;
-    return Channel.restore({ ...data, callsCount: data._count.calls });
+    return Channel.restore({
+      ...data,
+      callsCount: data._count.calls,
+      errorLogsCount: data._count.errors,
+    });
   }
 
   async findChannelsByCategoryId(categoryId: string) {
     const data = await db.channel.findMany({
       where: { categoryId },
       orderBy: { name: "asc" },
-      include: { _count: { select: { calls: true } } },
+      include: { _count: { select: { calls: true, errors: true } } },
     });
 
     return data.map((item) =>
-      Channel.restore({ ...item, callsCount: item._count.calls })
+      Channel.restore({
+        ...item,
+        callsCount: item._count.calls,
+        errorLogsCount: item._count.errors,
+      })
     );
   }
 

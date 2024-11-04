@@ -8,7 +8,7 @@ function Caption() {
 
   return (
     <CaptionContainer>
-      <strong>Calls list</strong>
+      <div></div>
 
       <IconButton
         icon={Filter}

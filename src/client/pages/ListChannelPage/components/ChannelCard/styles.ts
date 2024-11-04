@@ -42,6 +42,10 @@ const ChannelCardContainer = styled(Link)`
     line-height: 16px;
     text-align: right;
     color: var(--text-body);
+
+    span {
+      color: rgb(var(--spotlight-danger));
+    }
   }
 
   &:hover {

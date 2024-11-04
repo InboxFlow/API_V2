@@ -6,7 +6,8 @@ type ChannelCardProps = {
 };
 
 function ChannelCard(props: ChannelCardProps) {
-  const { name, callsCount, formattedCreatedAt, id } = props.data;
+  const { name, callsCount, errorLogsCount, formattedCreatedAt, id } =
+    props.data;
 
   return (
     <ChannelCardContainer
@@ -18,7 +19,9 @@ function ChannelCard(props: ChannelCardProps) {
         <small>{formattedCreatedAt}</small>
       </div>
 
-      <p>{callsCount}</p>
+      <p>
+        {callsCount} - <span>{errorLogsCount}</span>
+      </p>
     </ChannelCardContainer>
   );
 }

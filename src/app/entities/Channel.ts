@@ -4,6 +4,7 @@ type ChannelConstructorType = {
   id: string;
   name: string;
   callsCount: number;
+  errorLogsCount: number;
   userId: string;
   categoryId: string;
   createdAt: Date;
@@ -14,6 +15,7 @@ type ChannelRestoreType = {
   id: string;
   name: string;
   callsCount: number;
+  errorLogsCount: number;
   userId: string;
   categoryId: string;
   createdAt: string;
@@ -35,6 +37,7 @@ class Channel {
   id: string;
   name: string;
   callsCount: number;
+  errorLogsCount: number;
   userId: string;
   categoryId: string;
   createdAt: Date;
@@ -44,6 +47,7 @@ class Channel {
     this.id = props.id;
     this.name = props.name;
     this.callsCount = props.callsCount;
+    this.errorLogsCount = props.errorLogsCount;
     this.userId = props.userId;
     this.categoryId = props.categoryId;
     this.createdAt = props?.createdAt || new Date();
@@ -57,6 +61,7 @@ class Channel {
       userId: props.userId,
       categoryId: props.categoryId,
       callsCount: 0,
+      errorLogsCount: 0,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -69,6 +74,7 @@ class Channel {
       userId: props.userId,
       categoryId: props.categoryId,
       callsCount: props.callsCount,
+      errorLogsCount: props.errorLogsCount,
       createdAt: new Date(props.createdAt),
       updatedAt: new Date(props.updatedAt),
     });
@@ -93,6 +99,7 @@ class Channel {
       id: this.id,
       name: this.name,
       callsCount: this.callsCount,
+      errorLogsCount: this.errorLogsCount,
       userId: this.userId,
       categoryId: this.categoryId,
       createdAt: this.createdAt.toISOString(),
