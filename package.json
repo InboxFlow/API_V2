@@ -13,7 +13,8 @@
     "prisma:studio": "bunx prisma studio",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "ccm": "./auto_commit.sh"
   },
   "dependencies": {
     "@arkyn/components": "^1.3.150",
