@@ -13,8 +13,6 @@ import {
 
 import { ProgressBar } from "./client/components";
 
-// teste diff
-
 import "@arkyn/components/dist/style.css";
 import "~/client/theme/reset.css";
 
