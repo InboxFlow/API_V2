@@ -26,7 +26,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <h1>o sergio e boiola</h1>
         <DrawerProvider>
           <ToastProvider>
             <ModalProvider>{children}</ModalProvider>
