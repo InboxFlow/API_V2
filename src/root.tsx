@@ -26,6 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <h1>arkyn</h1>
         <DrawerProvider>
           <ToastProvider>
             <ModalProvider>{children}</ModalProvider>
