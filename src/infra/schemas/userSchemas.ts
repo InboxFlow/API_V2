@@ -13,6 +13,12 @@ const createUserSchema = z.object({
     .min(8, "Password must be at least 8 characters long"),
 });
 
+const clearUserLogsSchema = z.object({
+  password: z
+    .string({ required_error: "Password is required" })
+    .min(8, "Password must be at least 8 characters long"),
+});
+
 const deleteUserSchema = z.object({
   userId: z.string({ required_error: "Id is required" }).uuid("Invalid id"),
 });
@@ -36,6 +42,7 @@ const listUserByMailSchema = z.object({
 });
 
 export {
+  clearUserLogsSchema,
   createUserSchema,
   deleteUserSchema,
   listUserByIdSchema,

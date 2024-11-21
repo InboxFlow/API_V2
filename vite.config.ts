@@ -2,7 +2,6 @@ import { vitePlugin as remix } from "@remix-run/dev";
 import { config } from "dotenv";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { remixDevTools } from "remix-development-tools";
 
 import wyw from "@wyw-in-js/vite";
 
@@ -11,7 +10,6 @@ config({ path: ".env" });
 export default defineConfig({
   plugins: [
     wyw(),
-    remixDevTools(),
     remix({
       appDirectory: "./src",
       future: {
