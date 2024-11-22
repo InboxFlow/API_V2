@@ -13,7 +13,7 @@ function Footer() {
         Cancel
       </Button>
       <Button isLoading={state !== "idle"} scheme="danger">
-        Delete
+        Clear all
       </Button>
     </ModalFooter>
   );
