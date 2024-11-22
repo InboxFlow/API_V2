@@ -1,5 +1,6 @@
-import { Button } from "@arkyn/components";
-import { Plus, Trash2 } from "lucide-react";
+import { Button, IconButton } from "@arkyn/components";
+import { useRevalidator } from "@remix-run/react";
+import { RefreshCcw, Plus, Trash2 } from "lucide-react";
 
 import { PageHeader } from "~/client/components";
 
@@ -9,6 +10,8 @@ import { Content } from "./styles";
 function ListChannelPageHeader() {
   const { createCategoryModal, createChannelModal, clearUserLogsModal } =
     useOverlay();
+
+  const { revalidate, state } = useRevalidator();
 
   return (
     <PageHeader title="Inbox Flow Admin">
@@ -37,6 +40,14 @@ function ListChannelPageHeader() {
         >
           Clear logs
         </Button>
+
+        <IconButton
+          icon={RefreshCcw}
+          variant="outline"
+          aria-label="Refresh"
+          onClick={revalidate}
+          isLoading={state !== "idle"}
+        />
       </Content>
     </PageHeader>
   );
