@@ -1,4 +1,4 @@
-import { BadRequestError } from "@arkyn/server";
+import { BadRequestError, UnprocessableEntityError } from "@arkyn/server";
 import { hash as argonHash, verify as argonVerify } from "argon2";
 
 class PasswordAdapter {
@@ -9,9 +9,22 @@ class PasswordAdapter {
     return passwordHash;
   }
 
-  async verify(hash: string, password: string) {
+  async verify(
+    hash: string,
+    password: string,
+    throwType: "badRequest" | "unprocessableEntity" = "badRequest"
+  ) {
     const match = await argonVerify(hash, password);
-    if (!match) throw new BadRequestError("Invalid password");
+
+    if (!match && throwType === "badRequest") {
+      throw new BadRequestError("Invalid password");
+    }
+
+    if (!match && throwType === "unprocessableEntity") {
+      throw new UnprocessableEntityError({
+        fieldErrors: { password: "Invalid password" },
+      });
+    }
   }
 
   async safeVerify(hash: string, password: string) {

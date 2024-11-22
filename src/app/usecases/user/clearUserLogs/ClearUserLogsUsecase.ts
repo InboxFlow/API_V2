@@ -26,7 +26,12 @@ class ClearUserLogsUsecase {
     if (!user) throw new BadRequestError("User not found");
 
     const passwordAdapter = new PasswordAdapter();
-    await passwordAdapter.verify(user.password, password);
+
+    await passwordAdapter.verify(
+      user.password,
+      password,
+      "unprocessableEntity"
+    );
 
     const channels = await this.channelRepository.findAll({ userId });
 

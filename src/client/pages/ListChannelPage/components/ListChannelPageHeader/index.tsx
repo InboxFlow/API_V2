@@ -1,5 +1,5 @@
 import { Button } from "@arkyn/components";
-import { Plus } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 
 import { PageHeader } from "~/client/components";
 
@@ -7,7 +7,8 @@ import { useOverlay } from "../../context";
 import { Content } from "./styles";
 
 function ListChannelPageHeader() {
-  const { createCategoryModal, createChannelModal } = useOverlay();
+  const { createCategoryModal, createChannelModal, clearUserLogsModal } =
+    useOverlay();
 
   return (
     <PageHeader title="Inbox Flow Admin">
@@ -26,6 +27,15 @@ function ListChannelPageHeader() {
           onClick={() => createChannelModal.openModal()}
         >
           Add channel
+        </Button>
+
+        <Button
+          leftIcon={Trash2}
+          variant="outline"
+          scheme="danger"
+          onClick={() => clearUserLogsModal.openModal()}
+        >
+          Clear logs
         </Button>
       </Content>
     </PageHeader>
