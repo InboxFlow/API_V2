@@ -11,6 +11,7 @@
   --card: #ffffff;
   --card-foreground-primary: #f8fafc;
   --card-foreground-secondary: #f1f5f9;
+  --card-foreground-terceary: #e2e8f0;
 
   /* Input, Select, Textarea, Button (outline), Icon Button (outline) */
   --input-background: 248, 250, 252; /* #f8fafc */

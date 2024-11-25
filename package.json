@@ -17,10 +17,10 @@
     "ccm": "./auto_commit.sh"
   },
   "dependencies": {
-    "@arkyn/components": "^1.3.154",
-    "@arkyn/server": "^1.3.154",
-    "@arkyn/shared": "^1.3.154",
-    "@arkyn/types": "^1.3.154",
+    "@arkyn/components": "^1.3.158",
+    "@arkyn/server": "^1.3.158",
+    "@arkyn/shared": "^1.3.158",
+    "@arkyn/types": "^1.3.158",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@prisma/client": "^5.22.0",
@@ -55,7 +55,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "prisma": "^5.22.0",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vite-tsconfig-paths": "^4.3.2"
   },
