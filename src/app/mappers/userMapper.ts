@@ -7,8 +7,8 @@ function userMapper(user: User) {
     mail: user.mail,
     password: user.password,
     verified: user.verified,
-    createdAt: user.createdAt.toString(),
-    updatedAt: user.updatedAt.toString(),
+    createdAt: user.createdAt.toISOString(),
+    updatedAt: user.updatedAt.toISOString(),
   };
 }
 

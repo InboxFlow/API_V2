@@ -20,12 +20,12 @@ class CallRepository implements CallRepositoryDTO {
       },
       skip: (page - 1) * perPage,
       take: perPage,
-      orderBy: { createdAt: "desc" as "desc" },
+      orderBy: { createdAt: "asc" as "asc" },
     };
 
     const [data, count] = await Promise.all([
-      db.call.findMany(queryFilters),
-      db.call.count({ where: queryFilters.where }),
+      await db.call.findMany(queryFilters),
+      await db.call.count({ where: queryFilters.where }),
     ]);
 
     const lastPage = Math.ceil(count / perPage);

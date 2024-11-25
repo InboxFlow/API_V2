@@ -9,8 +9,8 @@ function callMapper(call: Call) {
     request: call.request,
     response: call.response,
     channelId: call.channelId,
-    createdAt: call.createdAt.toString(),
-    updatedAt: call.updatedAt.toString(),
+    createdAt: call.createdAt.toISOString(),
+    updatedAt: call.updatedAt.toISOString(),
   };
 }
 

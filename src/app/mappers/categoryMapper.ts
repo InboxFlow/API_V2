@@ -5,8 +5,8 @@ function categoryMapper(category: Category) {
     id: category.id,
     name: category.name,
     userId: category.userId,
-    createdAt: category.createdAt.toString(),
-    updatedAt: category.updatedAt.toString(),
+    createdAt: category.createdAt.toISOString(),
+    updatedAt: category.updatedAt.toISOString(),
   };
 }
 

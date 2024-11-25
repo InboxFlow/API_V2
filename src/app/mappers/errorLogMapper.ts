@@ -8,8 +8,8 @@ function errorLogMapper(errorLog: ErrorLog) {
     params: errorLog.params,
     request: errorLog.request,
     channelId: errorLog.channelId,
-    createdAt: errorLog.createdAt.toString(),
-    updatedAt: errorLog.updatedAt.toString(),
+    createdAt: errorLog.createdAt.toISOString(),
+    updatedAt: errorLog.updatedAt.toISOString(),
   };
 }
 

@@ -6,8 +6,8 @@ function channelMapper(channel: Channel) {
     name: channel.name,
     userId: channel.userId,
     categoryId: channel.categoryId,
-    createdAt: channel.createdAt.toString(),
-    updatedAt: channel.updatedAt.toString(),
+    createdAt: channel.createdAt.toISOString(),
+    updatedAt: channel.updatedAt.toISOString(),
   };
 }
 
