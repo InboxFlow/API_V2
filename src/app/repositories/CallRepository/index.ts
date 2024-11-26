@@ -20,7 +20,7 @@ class CallRepository implements CallRepositoryDTO {
       },
       skip: (page - 1) * perPage,
       take: perPage,
-      orderBy: { createdAt: "asc" as "asc" },
+      orderBy: { createdAt: "desc" as "desc" },
     };
 
     const [data, count] = await Promise.all([
