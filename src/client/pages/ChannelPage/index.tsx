@@ -22,6 +22,7 @@ function ChannelPage() {
         <ChannelPageHeader />
 
         <TabContainer defaultActive={lastPath} onClick={navigate}>
+          <TabButton value="dashboard">Dashboard</TabButton>
           <TabButton value="calls">Calls list</TabButton>
           <TabButton value="error-logs">Error logs</TabButton>
         </TabContainer>

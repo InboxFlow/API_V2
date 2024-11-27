@@ -36,6 +36,21 @@ class CallRepository implements CallRepositoryDTO {
     };
   }
 
+  async findAllWithoutPagination(channelId: string) {
+    const data = await db.call.findMany({
+      select: { id: true, createdAt: true, method: true, status: true },
+      orderBy: { createdAt: "asc" },
+      where: { channelId },
+    });
+
+    return data.map((call) => ({
+      id: call.id,
+      createdAt: new Date(call.createdAt),
+      method: call.method,
+      status: call.status,
+    }));
+  }
+
   async findById(id: string) {
     const data = await db.call.findUnique({ where: { id } });
 

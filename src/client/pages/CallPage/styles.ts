@@ -11,4 +11,9 @@ const CallPageContainer = styled.main`
   }
 `;
 
-export { CallPageContainer };
+const StatsContainer = styled.main`
+  display: flex;
+  gap: 16px;
+`;
+
+export { CallPageContainer, StatsContainer };
