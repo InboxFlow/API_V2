@@ -18,8 +18,6 @@ class CreateCallUsecase {
     const channel = await this.channelRepository.findById(channelId);
     if (!channel) throw new BadRequestError("Channel not found");
 
-    console.log(channel);
-
     const call = Call.create({
       status,
       channelId,
