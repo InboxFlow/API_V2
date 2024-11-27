@@ -22,6 +22,11 @@ class GetPeakDayReportUsecase {
     const callsPerDayHour = calls.reduce<Record<string, number>>(
       (acc, call) => {
         const date = new Date(call.createdAt);
+
+        if (process.env.NODE_ENV === "production") {
+          date.setHours(date.getHours() - 3);
+        }
+
         const key = `${date.toLocaleDateString("pt-BR")}-${date.getHours()}`;
         acc[key] = (acc[key] || 0) + 1;
         return acc;
