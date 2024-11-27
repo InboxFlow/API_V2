@@ -22,7 +22,7 @@ function Body() {
           <td>
             <MethodBadge method={errorLog.method} />
           </td>
-          <td>{formatToEllipsis(extractUrlFromJson(errorLog.request), 150)}</td>
+          <td>{formatToEllipsis(extractUrlFromJson(errorLog.request), 100)}</td>
           <td>{errorLog.formattedCreatedAt}</td>
 
           <ActionsColumnContainer>

@@ -26,7 +26,7 @@ function Body() {
           <td>
             <StatusBadge status={call.status} />
           </td>
-          <td>{formatToEllipsis(extractUrlFromJson(call.request), 150)}</td>
+          <td>{formatToEllipsis(extractUrlFromJson(call.request), 100)}</td>
           <td>{call.formattedCreatedAt}</td>
 
           <ActionsColumnContainer>

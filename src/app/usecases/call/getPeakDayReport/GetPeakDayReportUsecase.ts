@@ -6,7 +6,7 @@ import { listCallsSchema } from "~/infra/schemas/callSchemas";
 
 interface PeakInfo {
   date: string;
-  hour: number;
+  hour: string;
   quantity: number;
 }
 
@@ -48,13 +48,13 @@ class GetPeakDayReportUsecase {
 
           return {
             date: `${day}/${month}/${year} - ${dayOfWeek}`,
-            hour: Number(horaStr),
+            hour: Number(horaStr) + ":00 - " + (Number(horaStr) + 1) + ":00",
             quantity,
           };
         }
         return maior;
       },
-      { date: "", hour: 0, quantity: 0 }
+      { date: "", hour: "00:00", quantity: 0 }
     );
 
     return biggestPeak;
