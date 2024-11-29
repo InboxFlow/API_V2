@@ -7,11 +7,7 @@ type V1LayoutHeaderArgs = {
 
 function V1LayoutHeader(args: V1LayoutHeaderArgs) {
   const { children } = args;
-  return (
-    <V1LayoutHeaderContainer>
-      <div>{children}</div>
-    </V1LayoutHeaderContainer>
-  );
+  return <V1LayoutHeaderContainer>{children}</V1LayoutHeaderContainer>;
 }
 
 export { V1LayoutHeader };

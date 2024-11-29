@@ -2,6 +2,9 @@ import { styled } from "@linaria/react";
 
 const V1LayoutHeaderContainer = styled.header`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   height: 64px;
 
   background-color: var(--background-foreground);
@@ -15,17 +18,6 @@ const V1LayoutHeaderContainer = styled.header`
   z-index: 1000;
 
   border-bottom: 1px solid var(--border);
-
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-
-    max-width: 1550px;
-    margin: 0 auto;
-  }
 `;
 
 export { V1LayoutHeaderContainer };
