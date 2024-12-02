@@ -7,11 +7,11 @@ import { CallLoader } from "~/client/types";
 import { PeakDayReportContainer } from "./styles";
 
 function PeakDayReport() {
-  const { peakDayReport } = useLoaderData<CallLoader>();
+  // const { peakDayReport } = useLoaderData<DashboardPage>();
 
   return (
     <PeakDayReportContainer>
-      <StatCard
+      {/* <StatCard
         icon={Calendar}
         scheme="info"
         title="Day peak"
@@ -30,7 +30,7 @@ function PeakDayReport() {
         scheme="info"
         title="Quantity"
         value={peakDayReport.quantity}
-      />
+      /> */}
     </PeakDayReportContainer>
   );
 }

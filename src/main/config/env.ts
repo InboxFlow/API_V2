@@ -8,8 +8,11 @@ class EnvError extends Error {
 }
 
 const envSchema = z.object({
-  JWT_KEY: z.string().min(1),
+  // DATABASE CONNECTION
   POSTGRES_URL: z.string().min(3),
+
+  // JWT KEY
+  JWT_KEY: z.string().min(1),
 });
 
 function formatErrorMessage(error: z.ZodError) {
