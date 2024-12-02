@@ -1,11 +1,7 @@
 import { PeakDayReport } from "./components/PeakDayReport";
 
 function DashboardPage() {
-  return (
-    <>
-      <PeakDayReport />
-    </>
-  );
+  return <>{/* <PeakDayReport /> */}</>;
 }
 
 export { DashboardPage };
