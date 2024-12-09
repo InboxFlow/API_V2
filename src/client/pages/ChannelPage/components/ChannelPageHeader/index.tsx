@@ -1,6 +1,6 @@
 import { Button, IconButton } from "@arkyn/components";
-import { useLoaderData, useNavigate } from "@remix-run/react";
-import { ArrowLeft, Pen, Trash } from "lucide-react";
+import { useLoaderData, useNavigate, useRevalidator } from "@remix-run/react";
+import { ArrowLeft, Pen, RefreshCcw, Trash } from "lucide-react";
 
 import { PageHeader } from "~/client/components";
 import { ChannelLoader } from "~/client/types";
@@ -11,6 +11,7 @@ function ChannelPageHeader() {
   const title = `${channel.name}`;
 
   const { updateChannelModal, deleteChannelModal } = useOverlay();
+  const { revalidate, state } = useRevalidator();
 
   const navigate = useNavigate();
   function navigateToChannels() {
@@ -39,6 +40,14 @@ function ChannelPageHeader() {
         variant="outline"
         icon={Trash}
         onClick={() => deleteChannelModal.openModal(channel)}
+      />
+
+      <IconButton
+        icon={RefreshCcw}
+        variant="outline"
+        aria-label="Refresh"
+        onClick={revalidate}
+        isLoading={state !== "idle"}
       />
     </PageHeader>
   );
