@@ -17,10 +17,10 @@
     "ccm": "./auto_commit.sh"
   },
   "dependencies": {
-    "@arkyn/components": "^1.4.8",
-    "@arkyn/server": "^1.4.8",
-    "@arkyn/shared": "^1.4.8",
-    "@arkyn/types": "^1.4.8",
+    "@arkyn/components": "^1.4.9",
+    "@arkyn/server": "^1.4.9",
+    "@arkyn/shared": "^1.4.9",
+    "@arkyn/types": "^1.4.9",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@prisma/client": "^5.22.0",
@@ -35,13 +35,13 @@
     "nprogress": "^0.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.15.1",
     "@types/nprogress": "^0.2.3",
-    "@types/react": "^18.3.14",
-    "@types/react-dom": "^18.3.2",
+    "@types/react": "^18.3.16",
+    "@types/react-dom": "^18.3.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.20",
