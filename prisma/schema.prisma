@@ -18,6 +18,9 @@ model call {
   updatedAt String
   channelId String
   channel   channel @relation(fields: [channelId], references: [id])
+
+  @@index([request], name: "request_fulltext_idx")
+  @@index([response], name: "response_fulltext_idx")
 }
 
 model errorLog {
