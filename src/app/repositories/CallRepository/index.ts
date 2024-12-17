@@ -14,8 +14,8 @@ class CallRepository implements CallRepositoryDTO {
       where: {
         channelId: params.channelId,
         method: { contains: params.method || undefined },
-        request: { contains: params.request || undefined },
-        response: { contains: params.response || undefined },
+        request: params.request ? { search: params.request } : undefined,
+        response: params.response ? { search: params.response } : undefined,
         status: { equals: params.status || undefined },
       },
       skip: (page - 1) * perPage,
