@@ -107,7 +107,9 @@ function V2Layout() {
           <V2LayoutNavLink label="UnprocessableEntityError" to="/alert" />
         </V2LayoutNavGroup>
 
-        <V2LayoutNavLink label="globalErrorHandler" to="/alert" />
+        <V2LayoutNavGroup label="Helpers">
+          <V2LayoutNavLink label="globalErrorHandler" to="/alert" />
+        </V2LayoutNavGroup>
 
         <V2LayoutNavGroup label="Services">
           <V2LayoutNavLink label="extractJsonFromRequest" to="/alert" />
