@@ -23,13 +23,19 @@ type ParagraphType =
   | ExampleParagraphType;
 
 type SectionType = {
-  title: string;
+  title?: string;
   paragraphs: ParagraphType[];
 };
 
-type StructureType = {
+type DocStructureType = {
   title: string;
   sections: SectionType[];
 };
 
-export type { StructureType };
+export type {
+  DocStructureType,
+  TextParagraphType,
+  ExampleParagraphType,
+  NoteParagraphType,
+  ParagraphType,
+};
