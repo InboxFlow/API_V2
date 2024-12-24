@@ -3,6 +3,7 @@ import { ChannelLoader } from "./ChannelLoader";
 import { ErrorLogLoader } from "./ErrorLogLoader";
 import { ListChannelLoader } from "./ListChannelLoader";
 import { V1LayoutLoader } from "./V1LayoutLoader";
+import { V2LayoutLoader } from "./V2LayoutLoader";
 
 export type {
   CallLoader,
@@ -10,4 +11,5 @@ export type {
   ErrorLogLoader,
   ListChannelLoader,
   V1LayoutLoader,
+  V2LayoutLoader,
 };
