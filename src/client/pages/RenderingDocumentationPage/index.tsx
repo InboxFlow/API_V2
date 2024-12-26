@@ -14,8 +14,13 @@ function RenderingDocumentationPage() {
   const params = useParams();
   const docKey = params?.dockKey;
 
-  if (!docKey || !documentationFiles[docKey])
-    throw new Error("Documentation not found");
+  if (!docKey || !documentationFiles[docKey]) {
+    return (
+      <RenderingDocumentationPageContainer>
+        <TitleContainer>Documentation not found</TitleContainer>
+      </RenderingDocumentationPageContainer>
+    );
+  }
 
   const documentation = documentationFiles[docKey];
 
