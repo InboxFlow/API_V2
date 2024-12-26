@@ -33,6 +33,7 @@
     "jose": "^5.9.6",
     "lucide-react": "^0.453.0",
     "nprogress": "^0.2.0",
+    "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.24.1"
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.15.1",
     "@types/nprogress": "^0.2.3",
+    "@types/prismjs": "^1.26.5",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",

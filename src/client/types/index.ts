@@ -3,6 +3,7 @@ import { ChannelLoader } from "./ChannelLoader";
 import {
   DocStructureType,
   ExampleParagraphType,
+  FenceParagraphType,
   NoteParagraphType,
   ParagraphType,
   TextParagraphType,
@@ -18,6 +19,7 @@ export type {
   DocStructureType,
   ErrorLogLoader,
   ExampleParagraphType,
+  FenceParagraphType,
   ListChannelLoader,
   NoteParagraphType,
   ParagraphType,

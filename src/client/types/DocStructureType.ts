@@ -10,6 +10,40 @@ type ExampleParagraphType = {
   content: ReactNode;
 };
 
+type FenceParagraphType = {
+  type: "fence";
+  content: string;
+  languageType?: string;
+  language?:
+    | "markup"
+    | "html"
+    | "xml"
+    | "svg"
+    | "mathml"
+    | "ssml"
+    | "atom"
+    | "rss"
+    | "css"
+    | "clike"
+    | "javascript"
+    | "js"
+    | "abap"
+    | "abnf"
+    | "actionscript"
+    | "ada"
+    | "agda"
+    | "al"
+    | "antlr4"
+    | "g4"
+    | "apacheconf"
+    | "apex"
+    | "apl"
+    | "applescript"
+    | "aql"
+    | "arduino"
+    | "ino";
+};
+
 type NoteParagraphType = {
   type: "note";
   scheme: "success" | "danger" | "warning" | "info";
@@ -20,7 +54,8 @@ type NoteParagraphType = {
 type ParagraphType =
   | TextParagraphType
   | NoteParagraphType
-  | ExampleParagraphType;
+  | ExampleParagraphType
+  | FenceParagraphType;
 
 type SectionType = {
   title?: string;
@@ -34,8 +69,9 @@ type DocStructureType = {
 
 export type {
   DocStructureType,
-  TextParagraphType,
   ExampleParagraphType,
+  FenceParagraphType,
   NoteParagraphType,
   ParagraphType,
+  TextParagraphType,
 };

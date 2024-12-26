@@ -22,4 +22,25 @@ const TextParagraphContainer = styled.p`
   }
 `;
 
-export { TextParagraphContainer };
+const ExampleParagraphContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+  padding: 32px;
+
+  border: 1px solid var(--border);
+  background-color: var(--card-foreground-primary);
+  border-radius: 8px;
+
+  transition: all 0.15s ease-in-out;
+
+  > header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+`;
+
+export { ExampleParagraphContainer, TextParagraphContainer };

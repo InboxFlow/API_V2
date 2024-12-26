@@ -40,25 +40,28 @@ function V2Layout() {
 
         <V2LayoutNavGroup label="Components">
           <V2LayoutNavLink label="Alert" to="/alert" />
-          <V2LayoutNavLink label="AudioUpload" to="/alert" />
-          <V2LayoutNavLink label="Badge" to="/alert" />
-          <V2LayoutNavLink label="Breadcrumb" to="/alert" />
-          <V2LayoutNavLink label="Button" to="/alert" />
-          <V2LayoutNavLink label="Card" to="/alert" />
-          <V2LayoutNavLink label="Checkbox" to="/alert" />
-          <V2LayoutNavLink label="ClientOnly" to="/alert" />
-          <V2LayoutNavLink label="Divider" to="/alert" />
-          <V2LayoutNavLink label="Drawer" to="/alert" />
-          <V2LayoutNavLink label="Form" to="/alert" />
-          <V2LayoutNavLink label="GoogleMap" to="/alert" />
-          <V2LayoutNavLink label="GoogleSearchPlaces" to="/alert" />
-          <V2LayoutNavLink label="GoogleTagManager" to="/alert" />
-          <V2LayoutNavLink label="IconButton" to="/alert" />
-          <V2LayoutNavLink label="ImageUpload" to="/alert" />
-          <V2LayoutNavLink label="Input" to="/alert" />
-          <V2LayoutNavLink label="Modal" to="/alert" />
-          <V2LayoutNavLink label="MultiSelect" to="/alert" />
-          <V2LayoutNavLink label="Pagination" to="/alert" />
+          <V2LayoutNavLink label="AudioUpload" to="/audio-upload" />
+          <V2LayoutNavLink label="Badge" to="/badge" />
+          <V2LayoutNavLink label="Breadcrumb" to="/breadcrumb" />
+          <V2LayoutNavLink label="Button" to="/button" />
+          <V2LayoutNavLink label="Card" to="/card" />
+          <V2LayoutNavLink label="Checkbox" to="/checkbox" />
+          <V2LayoutNavLink label="ClientOnly" to="/client-only" />
+          <V2LayoutNavLink label="Divider" to="/divider" />
+          <V2LayoutNavLink label="Drawer" to="/drawer" />
+          <V2LayoutNavLink label="Form" to="/form" />
+          <V2LayoutNavLink label="GoogleMap" to="/google-map" />
+          <V2LayoutNavLink
+            label="GoogleSearchPlaces"
+            to="/google-search-places"
+          />
+          <V2LayoutNavLink label="GoogleTagManager" to="/google-tag-manager" />
+          <V2LayoutNavLink label="IconButton" to="/icon-button" />
+          <V2LayoutNavLink label="ImageUpload" to="/image-upload" />
+          <V2LayoutNavLink label="Input" to="/input" />
+          <V2LayoutNavLink label="Modal" to="/modal" />
+          <V2LayoutNavLink label="MultiSelect" to="/multi-select" />
+          <V2LayoutNavLink label="Pagination" to="/pagination" />
           <V2LayoutNavLink label="Popover" to="/alert" />
           <V2LayoutNavLink label="Radio" to="/alert" />
           <V2LayoutNavLink label="RichText" to="/alert" />

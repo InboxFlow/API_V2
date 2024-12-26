@@ -7,7 +7,8 @@ import {
 } from "@arkyn/components";
 
 import { ParagraphType } from "~/client/types";
-import { TextParagraphContainer } from "./styles";
+import { TextParagraphContainer, ExampleParagraphContainer } from "./styles";
+import { Fence } from "../Fence";
 
 type RenderingParagraphProps = {
   data: ParagraphType;
@@ -27,10 +28,18 @@ function RenderingParagraph({ data }: RenderingParagraphProps) {
           <AlertIcon />
           <AlertContent>
             <AlertTitle>{data.title}</AlertTitle>
-            <AlertDescription>{data.content}</AlertDescription>
+            <AlertDescription
+              dangerouslySetInnerHTML={{ __html: data.content }}
+            ></AlertDescription>
           </AlertContent>
         </AlertContainer>
       );
+    case "example":
+      return (
+        <ExampleParagraphContainer>{data.content}</ExampleParagraphContainer>
+      );
+    case "fence":
+      return <Fence data={data} />;
     default:
       return <strong>TYPE NOT FOUND</strong>;
   }
