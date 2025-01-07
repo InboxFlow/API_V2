@@ -1,5 +1,3 @@
-import { useAutomation } from "@arkyn/components";
-
 import { CategoryGroup } from "./components/CategoryGroup";
 import { ClearUserLogsModal } from "./components/ClearUserLogsModal";
 import { CreateCategoryModal } from "./components/CreateCategoryModal";
@@ -12,8 +10,6 @@ import { OverlayProvider } from "./context";
 import { ListChannelPageContainer } from "./styles";
 
 function ListChannelPage() {
-  useAutomation();
-
   return (
     <OverlayProvider>
       <ListChannelPageContainer>

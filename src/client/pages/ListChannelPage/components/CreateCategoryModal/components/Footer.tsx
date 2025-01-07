@@ -17,7 +17,10 @@ function Footer() {
       >
         Cancel
       </Button>
-      <Button isLoading={state !== "idle"}>Create category</Button>
+
+      <Button name="source" value="remix-form" isLoading={state !== "idle"}>
+        Create category
+      </Button>
     </ModalFooter>
   );
 }
