@@ -2,6 +2,7 @@ import { Channel, User } from "~/app/entities";
 import { ChannelRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
 import { createChannelSchema } from "~/infra/schemas/channelSchemas";
+import { isInternalRequest } from "~/main/services";
 
 class CreateChannelUsecase {
   constructor(private channelRepository: ChannelRepository) {}
@@ -17,6 +18,9 @@ class CreateChannelUsecase {
     });
 
     await this.channelRepository.createChannel(channel);
+
+    const internalRequest = isInternalRequest(body);
+    if (internalRequest) return { closeModalKey: "CREATE_CHANNEL_MODAL" };
 
     return channel.toJson();
   }

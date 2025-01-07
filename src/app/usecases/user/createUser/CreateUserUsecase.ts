@@ -4,6 +4,7 @@ import { User } from "~/app/entities";
 import { UserRepository } from "~/app/repositories";
 import { PasswordAdapter, ValidatorAdapter } from "~/infra/adapters";
 import { createUserSchema } from "~/infra/schemas/userSchemas";
+import { isInternalRequest } from "~/main/services";
 
 class CreateUserUsecase {
   constructor(private userRepository: UserRepository) {}
@@ -20,6 +21,9 @@ class CreateUserUsecase {
     const user = User.create({ mail, name, password: passwordHash });
 
     await this.userRepository.createUser(user);
+
+    const internalRequest = isInternalRequest(body);
+    if (internalRequest) return { closeModalKey: "CREATE_USER_MODAL" };
 
     return user.toJson();
   }

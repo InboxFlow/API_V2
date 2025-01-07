@@ -2,6 +2,7 @@ import { ErrorLog } from "~/app/entities";
 import { ErrorLogRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
 import { createErrorLogSchema } from "~/infra/schemas/errorLogSchemas";
+import { isInternalRequest } from "~/main/services";
 
 class CreateErrorLogUsecase {
   constructor(private errorLogRepository: ErrorLogRepository) {}
@@ -20,6 +21,9 @@ class CreateErrorLogUsecase {
     });
 
     await this.errorLogRepository.createErrorLog(errorLog);
+
+    const internalRequest = isInternalRequest(body);
+    if (internalRequest) return { closeModalKey: "CREATE_ERROR_LOG_MODAL" };
 
     return errorLog.toJson();
   }

@@ -3,6 +3,7 @@ import { BadRequestError } from "@arkyn/server";
 import { CategoryRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
 import { updateCategorySchema } from "~/infra/schemas/categorySchemas";
+import { isInternalRequest } from "~/main/services";
 
 class UpdateCategoryUsecase {
   constructor(private categoryRepository: CategoryRepository) {}
@@ -18,6 +19,9 @@ class UpdateCategoryUsecase {
     category.update({ name });
 
     await this.categoryRepository.updateCategory(category);
+
+    const internalRequest = isInternalRequest(body);
+    if (internalRequest) return { closeModalKey: "UPDATE_CATEGORY_MODAL" };
 
     return category.toJson();
   }

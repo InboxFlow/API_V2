@@ -3,6 +3,7 @@ import { Call } from "~/app/entities";
 import { CallRepository, ChannelRepository } from "~/app/repositories";
 import { ValidatorAdapter } from "~/infra/adapters";
 import { createCallSchema } from "~/infra/schemas/callSchemas";
+import { isInternalRequest } from "~/main/services";
 
 class CreateCallUsecase {
   constructor(
@@ -28,6 +29,9 @@ class CreateCallUsecase {
     });
 
     await this.callRepository.createCall(call);
+
+    const internalRequest = isInternalRequest(body);
+    if (internalRequest) return { closeModalKey: "CREATE_CALL_MODAL" };
 
     return call.toJson();
   }
