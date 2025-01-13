@@ -62,40 +62,46 @@ function V2Layout() {
           <V2LayoutNavLink label="Modal" to="/modal" />
           <V2LayoutNavLink label="MultiSelect" to="/multi-select" />
           <V2LayoutNavLink label="Pagination" to="/pagination" />
-          <V2LayoutNavLink label="Popover" to="/alert" />
-          <V2LayoutNavLink label="Radio" to="/alert" />
-          <V2LayoutNavLink label="RichText" to="/alert" />
-          <V2LayoutNavLink label="Select" to="/alert" />
-          <V2LayoutNavLink label="Skeleton" to="/alert" />
-          <V2LayoutNavLink label="Slider" to="/alert" />
-          <V2LayoutNavLink label="Switch" to="/alert" />
-          <V2LayoutNavLink label="Table" to="/alert" />
-          <V2LayoutNavLink label="Tabs" to="/alert" />
-          <V2LayoutNavLink label="Textarea" to="/alert" />
-          <V2LayoutNavLink label="Tooltip" to="/alert" />
+          <V2LayoutNavLink label="Popover" to="/popover" />
+          <V2LayoutNavLink label="Radio" to="/radio" />
+          <V2LayoutNavLink label="RichText" to="/rich-text" />
+          <V2LayoutNavLink label="Select" to="/select" />
+          <V2LayoutNavLink label="Skeleton" to="/skeleton" />
+          <V2LayoutNavLink label="Slider" to="/slider" />
+          <V2LayoutNavLink label="Switch" to="/switch" />
+          <V2LayoutNavLink label="Table" to="/table" />
+          <V2LayoutNavLink label="Tabs" to="/tabs" />
+          <V2LayoutNavLink label="Textarea" to="/textarea" />
+          <V2LayoutNavLink label="Tooltip" to="/tooltip" />
         </V2LayoutNavGroup>
 
         <V2LayoutNavGroup label="Hooks">
-          <V2LayoutNavLink label="useAutomation" to="/alert" />
-          <V2LayoutNavLink label="useDrawer" to="/alert" />
-          <V2LayoutNavLink label="useFieldErrors" to="/alert" />
-          <V2LayoutNavLink label="useHydrated" to="/alert" />
-          <V2LayoutNavLink label="useModal" to="/alert" />
-          <V2LayoutNavLink label="useScopedParams" to="/alert" />
-          <V2LayoutNavLink label="useToast" to="/alert" />
+          <V2LayoutNavLink label="useAutomation" to="/use-automation" />
+          <V2LayoutNavLink label="useDrawer" to="/use-drawer" />
+          <V2LayoutNavLink label="useFieldErrors" to="/use-field-errors" />
+          <V2LayoutNavLink label="useHydrated" to="/use-hydrated" />
+          <V2LayoutNavLink label="useModal" to="/use-modal" />
+          <V2LayoutNavLink label="useScopedParams" to="/use-scoped-params" />
+          <V2LayoutNavLink label="useToast" to="/use-toast" />
         </V2LayoutNavGroup>
 
         <V2LayoutNavGroup label="Providers">
-          <V2LayoutNavLink label="DrawerProvider" to="/alert" />
-          <V2LayoutNavLink label="GoogleProvider" to="/alert" />
-          <V2LayoutNavLink label="ModalProvider" to="/alert" />
-          <V2LayoutNavLink label="ToastProvider" to="/alert" />
+          <V2LayoutNavLink label="DrawerProvider" to="/drawer-provider" />
+          <V2LayoutNavLink label="GoogleProvider" to="/google-provider" />
+          <V2LayoutNavLink label="ModalProvider" to="/modal-provider" />
+          <V2LayoutNavLink label="ToastProvider" to="/toast-provider" />
         </V2LayoutNavGroup>
 
         <V2LayoutNavGroup label="Services">
-          <V2LayoutNavLink label="getHtmlFromRichTextValue" to="/alert" />
-          <V2LayoutNavLink label="getRichTextValueFromHtml" to="/alert" />
-          <V2LayoutNavLink label="isHtml" to="/alert" />
+          <V2LayoutNavLink
+            label="getHtmlFromRichTextValue"
+            to="/get-html-from-rich-text-value"
+          />
+          <V2LayoutNavLink
+            label="getRichTextValueFromHtml"
+            to="/get-rich-text-value-from-html"
+          />
+          <V2LayoutNavLink label="isHtml" to="/is-html" />
         </V2LayoutNavGroup>
 
         <V2LayoutTitle label="@arkyn/server" />
