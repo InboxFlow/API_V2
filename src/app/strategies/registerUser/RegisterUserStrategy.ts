@@ -1,5 +1,5 @@
 import { BadRequestError } from "@arkyn/server";
-import { redirect } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
 
 import { User } from "~/app/entities";
 import { UserRepository } from "~/app/repositories";

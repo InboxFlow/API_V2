@@ -1,6 +1,6 @@
 import { Call } from "~/app/entities";
 
-interface SearchParams {
+type SearchParams = {
   page: number;
   perPage: number;
   channelId: string;
@@ -8,16 +8,16 @@ interface SearchParams {
   method: string | null;
   response: string | null;
   request: string | null;
-}
+};
 
-interface FindAllWithoutPaginationResponse {
+type FindAllWithoutPaginationResponse = {
   id: string;
   createdAt: Date;
   method: string;
   status: number;
-}
+};
 
-interface CallRepositoryDTO {
+type CallRepositoryDTO = {
   findById(id: string): Promise<Call | null>;
   findAll(filters: SearchParams): Promise<{
     meta: { perPage: number; lastPage: number; totalCount: number };
@@ -28,6 +28,6 @@ interface CallRepositoryDTO {
   ): Promise<FindAllWithoutPaginationResponse[]>;
   createCall(data: Call): Promise<Call>;
   deleteAllCalls(channelId: string): Promise<void>;
-}
+};
 
 export type { CallRepositoryDTO, SearchParams };

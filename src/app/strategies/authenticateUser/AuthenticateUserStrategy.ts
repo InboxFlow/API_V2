@@ -1,4 +1,4 @@
-import { redirect } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
 
 import { UserRepository } from "~/app/repositories";
 import {

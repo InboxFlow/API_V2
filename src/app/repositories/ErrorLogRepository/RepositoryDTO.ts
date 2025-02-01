@@ -1,6 +1,6 @@
 import { ErrorLog } from "~/app/entities";
 
-interface SearchParams {
+type SearchParams = {
   page: number;
   perPage: number;
   channelId: string;
@@ -8,9 +8,9 @@ interface SearchParams {
   params: string | null;
   message: string | null;
   request: string | null;
-}
+};
 
-interface ErrorLogRepositoryDTO {
+type ErrorLogRepositoryDTO = {
   findById(id: string): Promise<ErrorLog | null>;
   findAll(filters: SearchParams): Promise<{
     meta: { perPage: number; lastPage: number; totalCount: number };
@@ -18,6 +18,6 @@ interface ErrorLogRepositoryDTO {
   }>;
   createErrorLog(data: ErrorLog): Promise<ErrorLog>;
   deleteAllErrorLogs(channelId: string): Promise<void>;
-}
+};
 
 export type { ErrorLogRepositoryDTO, SearchParams };

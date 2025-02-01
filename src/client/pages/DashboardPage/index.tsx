@@ -1,7 +1,12 @@
-import { PeakDayReport } from "./components/PeakDayReport";
+import { Button } from "@arkyn/components";
+import { DashboardPageContainer } from "./styles";
 
 function DashboardPage() {
-  return <>{/* <PeakDayReport /> */}</>;
+  return (
+    <DashboardPageContainer>
+      <Button>Gerar relatório</Button>
+    </DashboardPageContainer>
+  );
 }
 
 export { DashboardPage };
