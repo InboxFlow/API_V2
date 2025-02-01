@@ -52,7 +52,7 @@ model channel {
   userId     String
   createdAt  String
   updatedAt  String
-  categoryId String     @default("0")
+  categoryId String
   user       user       @relation("channel_users", fields: [userId], references: [id])
   category   category   @relation(fields: [categoryId], references: [id])
   calls      call[]

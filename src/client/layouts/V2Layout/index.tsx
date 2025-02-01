@@ -1,17 +1,20 @@
+import { Badge } from "@arkyn/components";
 import { Outlet } from "@remix-run/react";
 
 import { ProgressBar } from "~/client/components";
+import { dependencies } from "../../../../package.json";
 
 import { MenuConfig } from "./components/MenuButtons/MenuConfig";
+import { MenuSearch } from "./components/MenuButtons/MenuSearch";
 import { MenuUser } from "./components/MenuButtons/MenuUser";
 import { V2LayoutHeader } from "./components/V2LayoutHeader";
 import { V2LayoutHeaderLogo } from "./components/V2LayoutHeaderLogo";
 import { V2LayoutHeaderNavigation } from "./components/V2LayoutHeaderNavigation";
+import { V2LayoutNavGroup } from "./components/V2LayoutNavGroup";
 import { V2LayoutNavLink } from "./components/V2LayoutNavLink";
 import { V2LayoutSidebar } from "./components/V2LayoutSidebar";
-
-import { V2LayoutNavGroup } from "./components/V2LayoutNavGroup";
 import { V2LayoutTitle } from "./components/V2LayoutTitle";
+
 import { Container } from "./styles";
 
 function V2Layout() {
@@ -22,6 +25,10 @@ function V2Layout() {
       <V2LayoutHeader>
         <V2LayoutHeaderLogo />
         <V2LayoutHeaderNavigation>
+          <Badge title="Arkyn version">
+            {dependencies["@arkyn/components"]}
+          </Badge>
+          <MenuSearch />
           <MenuConfig />
           <MenuUser />
         </V2LayoutHeaderNavigation>
