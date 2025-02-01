@@ -17,16 +17,16 @@
     "ccm": "./auto_commit.sh"
   },
   "dependencies": {
-    "@arkyn/components": "^1.4.19",
-    "@arkyn/server": "^1.4.19",
-    "@arkyn/shared": "^1.4.19",
-    "@arkyn/types": "^1.4.19",
+    "@arkyn/components": "^1.4.20",
+    "@arkyn/server": "^1.4.20",
+    "@arkyn/shared": "^1.4.20",
+    "@arkyn/types": "^1.4.20",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@prisma/client": "^5.22.0",
-    "@remix-run/node": "^2.15.2",
-    "@remix-run/react": "^2.15.2",
-    "@remix-run/serve": "^2.15.2",
+    "@remix-run/node": "^2.15.3",
+    "@remix-run/react": "^2.15.3",
+    "@remix-run/serve": "^2.15.3",
     "@wyw-in-js/vite": "^0.5.5",
     "argon2": "^0.41.1",
     "isbot": "^4.4.0",
@@ -39,7 +39,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.15.2",
+    "@remix-run/dev": "^2.15.3",
     "@types/nprogress": "^0.2.3",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^18.3.18",
@@ -55,7 +55,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "prisma": "^5.22.0",
     "typescript": "^5.7.3",
-    "vite": "^5.4.11",
+    "vite": "^5.4.14",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "engines": {
