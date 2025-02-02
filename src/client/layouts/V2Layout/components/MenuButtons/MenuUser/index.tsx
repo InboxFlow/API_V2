@@ -22,6 +22,7 @@ function OpenPopoverButton() {
 }
 
 function MenuUser() {
+  return <></>;
   const { user } = useV2Layout();
 
   return (

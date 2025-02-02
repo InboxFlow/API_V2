@@ -4,10 +4,10 @@ type SearchParams = {
   page: number;
   perPage: number;
   channelId: string;
-  status: number | null;
-  method: string | null;
-  response: string | null;
-  request: string | null;
+  status?: number | null;
+  method?: string | null;
+  response?: string | null;
+  request?: string | null;
 };
 
 type FindAllWithoutPaginationResponse = {
@@ -23,9 +23,9 @@ type CallRepositoryDTO = {
     meta: { perPage: number; lastPage: number; totalCount: number };
     data: Call[];
   }>;
-  findAllWithoutPagination(
-    channelId: string
-  ): Promise<FindAllWithoutPaginationResponse[]>;
+  findPagination(
+    filters: SearchParams
+  ): Promise<{ perPage: number; lastPage: number; totalCount: number }>;
   createCall(data: Call): Promise<Call>;
   deleteAllCalls(channelId: string): Promise<void>;
 };

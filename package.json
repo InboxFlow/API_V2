@@ -29,6 +29,7 @@
     "@remix-run/serve": "^2.15.3",
     "@wyw-in-js/vite": "^0.5.5",
     "argon2": "^0.41.1",
+    "bull": "^4.16.5",
     "isbot": "^4.4.0",
     "jose": "^5.9.6",
     "lucide-react": "^0.453.0",

@@ -8,6 +8,8 @@ import { PopoverContent, PopoverHeader } from "./styles";
 const ARIA_LABEL = "Open search modal";
 
 function MenuSearch() {
+  return <></>;
+
   const { user } = useV2Layout();
   if (user.mail !== "lucasgoncalvesgithub@gmail.com") return <></>;
 

@@ -8,6 +8,7 @@ import { NavigationLink, PopoverContent, PopoverHeader } from "./styles";
 const ARIA_LABEL = "Open settings menu";
 
 function MenuConfig() {
+  return <></>;
   const { user } = useV2Layout();
   if (user.mail !== "lucasgoncalvesgithub@gmail.com") return <></>;
 
