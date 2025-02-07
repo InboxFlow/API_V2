@@ -17,10 +17,10 @@
     "ccm": "./auto_commit.sh"
   },
   "dependencies": {
-    "@arkyn/components": "^1.4.20",
-    "@arkyn/server": "^1.4.20",
-    "@arkyn/shared": "^1.4.20",
-    "@arkyn/types": "^1.4.20",
+    "@arkyn/components": "^1.4.22",
+    "@arkyn/server": "^1.4.22",
+    "@arkyn/shared": "^1.4.22",
+    "@arkyn/types": "^1.4.22",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@prisma/client": "^5.22.0",
@@ -37,6 +37,8 @@
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "remix-development-tools": "^4.7.7",
+    "vite-env-only": "^3.0.3",
     "zod": "^3.24.1"
   },
   "devDependencies": {
