@@ -53,15 +53,15 @@
   "packages": {
     "@ampproject/remapping": ["@ampproject/remapping@2.3.0", "", { "dependencies": { "@jridgewell/gen-mapping": "^0.3.5", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw=="],
 
-    "@arkyn/components": ["@arkyn/components@1.4.49", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "framer-motion": "^11.18.2", "html-react-parser": "^5.2.2", "is-hotkey": "^0.2.0", "lucide-react": "^0.424.0", "react-hot-toast": "^2.5.2", "react-scroll": "^1.9.3", "slate": "^0.103.0", "slate-history": "^0.109.0", "slate-react": "^0.110.3" }, "peerDependencies": { "@remix-run/react": "^2.15.0", "react": "^18.3.1", "react-dom": "^18.3.1" } }, "sha512-Trl66RRGHYEYjHIt5j+N84r3yX9s6Pu9BIpXqk/x37jYHLQ2r6opUHTiRW/VNhAIIH/q66VjqJ93zsfAN0R3Sg=="],
+    "@arkyn/components": ["@arkyn/components@1.4.50", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "framer-motion": "^11.18.2", "html-react-parser": "^5.2.2", "is-hotkey": "^0.2.0", "lucide-react": "^0.424.0", "react-hot-toast": "^2.5.2", "react-scroll": "^1.9.3", "slate": "^0.103.0", "slate-history": "^0.109.0", "slate-react": "^0.110.3" }, "peerDependencies": { "@remix-run/react": "^2.15.0", "react": "^18.3.1", "react-dom": "^18.3.1" } }, "sha512-NAhgl6b7jdm9dRo3rLq/9DBh79RHcLoQXIQrLlGRHFHBPXrsj8qZpCILMgtRcmRBKY9lG38JzzdKNUYOalSMYQ=="],
 
-    "@arkyn/server": ["@arkyn/server@1.4.50", "", { "dependencies": { "@arkyn/server": "*", "@aws-sdk/client-s3": "^3.775.0", "@remix-run/node": "^2.16.2", "sharp": "^0.33.5" } }, "sha512-l067mZ6upogIplrIxRE/jzUTCSLfcTDSxNP6KrQ2RBtrCxe8fociS6nJ+/k5NspICi7FP69Rd8S5DeuDGyw9Bw=="],
+    "@arkyn/server": ["@arkyn/server@1.4.51", "", { "dependencies": { "@arkyn/server": "*", "@aws-sdk/client-s3": "^3.775.0", "@remix-run/node": "^2.16.2", "sharp": "^0.33.5" } }, "sha512-lbD8ay4Qy/uelEyRpTiIvCxZh1syS8nk/ccMVR0AuRo6AGtXajKbbMKUhGJmXM02u26UMtjzj4+5yC8KA6WAIA=="],
 
-    "@arkyn/shared": ["@arkyn/shared@1.4.50", "", { "dependencies": { "uuid": "^10.0.0" } }, "sha512-YLHaQ+weAdyyCXnI++j8dhLPIB9irQIMxHuzSPetv3+ID256cAmVO4bB8U3NmMiTkiTb9ZAtlTfV8ZpALSQa/w=="],
+    "@arkyn/shared": ["@arkyn/shared@1.4.51", "", { "dependencies": { "uuid": "^10.0.0" } }, "sha512-TDJIex2H6kph15ghVZfGIHIU/LDHmsrzWvRg7DaV/vg6XHsrXidamoSqZRkIh2CJ0kiBQzkSPuiVKqoWzgvf4Q=="],
 
-    "@arkyn/templates": ["@arkyn/templates@1.4.50", "", {}, "sha512-2qa5BX1U+ICYt00wgGixALiSnvygyS4GMQZMuch3E0OldrRmDgYuiDX2/8Oiot53uBP9u/8LrRs9+oh7qa/WcQ=="],
+    "@arkyn/templates": ["@arkyn/templates@1.4.51", "", {}, "sha512-ENehYrcXNtF0l6+urnMv33LD/vo4guOhVaD+O4l7NwKdIt4RG7C49SRT5PKVlvxXNUucU0ip6lwsiOOkZZulTA=="],
 
-    "@arkyn/types": ["@arkyn/types@1.4.50", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "@remix-run/react": "^2.16.2", "lucide-react": "^0.424.0", "react": "^18.3.1", "react-dom": "^18.3.1", "zod": "^3.24.2" } }, "sha512-m5DGmZgKWC7XsLgCexSUhPn5Q5pLOQVnq3YlbPXl9uIm1O4pAdLM298QUpVX8DxEu+j9wH0q9GW9UGtGgMh7yQ=="],
+    "@arkyn/types": ["@arkyn/types@1.4.51", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "@remix-run/react": "^2.16.2", "lucide-react": "^0.424.0", "react": "^18.3.1", "react-dom": "^18.3.1", "zod": "^3.24.2" } }, "sha512-ri2WvfY331/mZEz9SIkkF2lNdHh3dHb9s6laAKiSjz5Q3x9/G/5GStORHf2UwIkCShAt/40AlyXoR/YOvUmNVw=="],
 
     "@aws-crypto/crc32": ["@aws-crypto/crc32@5.2.0", "", { "dependencies": { "@aws-crypto/util": "^5.2.0", "@aws-sdk/types": "^3.222.0", "tslib": "^2.6.2" } }, "sha512-nLbCWqQNgUiwwtFsen1AdzAtvuLRsQS8rYgMuxCrdKf9kOssamGLuPwyTY9wyYblNr9+1XM8v6zoDTPPSIeANg=="],
 

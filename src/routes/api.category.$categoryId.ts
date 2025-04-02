@@ -1,4 +1,9 @@
-import { globalErrorHandler, NotFoundError } from "@arkyn/server";
+import {
+  globalErrorHandler,
+  NoContent,
+  NotFoundError,
+  Success,
+} from "@arkyn/server";
 import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 
 import { deleteCategory } from "~/app/usecases/category/deleteCategory";
@@ -7,7 +12,7 @@ import { updateCategory } from "~/app/usecases/category/updateCategory";
 
 export async function loader(args: LoaderFunctionArgs) {
   try {
-    return await listCategoryById.handle(args);
+    return new Success(await listCategoryById.handle(args)).json();
   } catch (err) {
     return globalErrorHandler(err);
   }
@@ -17,9 +22,10 @@ export async function action(args: ActionFunctionArgs) {
   try {
     switch (args.request.method) {
       case "DELETE":
-        return await deleteCategory.handle(args);
+        await deleteCategory.handle(args);
+        return new NoContent().json();
       case "PATCH":
-        return await updateCategory.handle(args);
+        return new Success(await updateCategory.handle(args)).json();
       default:
         throw new NotFoundError("Method not allowed");
     }
