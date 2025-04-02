@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Adjust BUN_VERSION as desired
-ARG BUN_VERSION=1.1.26
+ARG BUN_VERSION=1.2.7
 FROM oven/bun:${BUN_VERSION}-slim as base
 
 LABEL fly_launch_runtime="Remix"
@@ -20,7 +20,7 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential pkg-config python-is-python3
 
 # Install node modules
-COPY bun.lockb package.json ./
+COPY bun.lock package.json ./
 RUN bun install
 
 # Copy application code
