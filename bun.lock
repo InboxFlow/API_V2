@@ -4,11 +4,11 @@
     "": {
       "name": "inbox-flow-remix-api",
       "dependencies": {
-        "@arkyn/components": "^1.4.49",
-        "@arkyn/server": "^1.4.50",
-        "@arkyn/shared": "^1.4.50",
-        "@arkyn/templates": "^1.4.50",
-        "@arkyn/types": "^1.4.50",
+        "@arkyn/components": "^1.4.50",
+        "@arkyn/server": "^1.4.51",
+        "@arkyn/shared": "^1.4.51",
+        "@arkyn/templates": "^1.4.51",
+        "@arkyn/types": "^1.4.51",
         "@linaria/core": "^6.3.0",
         "@linaria/react": "^6.3.0",
         "@prisma/client": "^5.22.0",
@@ -53,15 +53,15 @@
   "packages": {
     "@ampproject/remapping": ["@ampproject/remapping@2.3.0", "", { "dependencies": { "@jridgewell/gen-mapping": "^0.3.5", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw=="],
 
-    "@arkyn/components": ["@arkyn/components@1.4.50", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "framer-motion": "^11.18.2", "html-react-parser": "^5.2.2", "is-hotkey": "^0.2.0", "lucide-react": "^0.424.0", "react-hot-toast": "^2.5.2", "react-scroll": "^1.9.3", "slate": "^0.103.0", "slate-history": "^0.109.0", "slate-react": "^0.110.3" }, "peerDependencies": { "@remix-run/react": "^2.15.0", "react": "^18.3.1", "react-dom": "^18.3.1" } }, "sha512-NAhgl6b7jdm9dRo3rLq/9DBh79RHcLoQXIQrLlGRHFHBPXrsj8qZpCILMgtRcmRBKY9lG38JzzdKNUYOalSMYQ=="],
+    "@arkyn/components": ["@arkyn/components@1.4.51", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "framer-motion": "^11.18.2", "html-react-parser": "^5.2.2", "is-hotkey": "^0.2.0", "lucide-react": "^0.424.0", "react-hot-toast": "^2.5.2", "react-scroll": "^1.9.3", "slate": "^0.103.0", "slate-history": "^0.109.0", "slate-react": "^0.110.3" }, "peerDependencies": { "@remix-run/react": "^2.15.0", "react": "^18.3.1", "react-dom": "^18.3.1" } }, "sha512-a5ysyBGT3z/+330XMEyaEVpwM/W+EAB2IfbaJEMU7OBUkrLWIOEx38J+khHjvtNB/nf0GDVINehRw17lkny/vw=="],
 
-    "@arkyn/server": ["@arkyn/server@1.4.51", "", { "dependencies": { "@arkyn/server": "*", "@aws-sdk/client-s3": "^3.775.0", "@remix-run/node": "^2.16.2", "sharp": "^0.33.5" } }, "sha512-lbD8ay4Qy/uelEyRpTiIvCxZh1syS8nk/ccMVR0AuRo6AGtXajKbbMKUhGJmXM02u26UMtjzj4+5yC8KA6WAIA=="],
+    "@arkyn/server": ["@arkyn/server@1.4.52", "", { "dependencies": { "@arkyn/server": "*", "@aws-sdk/client-s3": "^3.775.0", "@remix-run/node": "^2.16.2", "sharp": "^0.33.5" } }, "sha512-Z1Ql+j/uA6DSgqcUzQ2LynsVEnxF4AY5f0bdWW6Ua78mlvkPFPAY1MJIKi16+ZPXIeOMzBhkAmSOekCWkO/GAQ=="],
 
-    "@arkyn/shared": ["@arkyn/shared@1.4.51", "", { "dependencies": { "uuid": "^10.0.0" } }, "sha512-TDJIex2H6kph15ghVZfGIHIU/LDHmsrzWvRg7DaV/vg6XHsrXidamoSqZRkIh2CJ0kiBQzkSPuiVKqoWzgvf4Q=="],
+    "@arkyn/shared": ["@arkyn/shared@1.4.52", "", { "dependencies": { "uuid": "^10.0.0" } }, "sha512-Qahg5eSRQjwyLqboIEwNqrMVcFiN37osMOyXvEeiCDlgWbHY/k3WqtrAlZyd2WUNg1IIFkkU7KOinU26QsZInA=="],
 
-    "@arkyn/templates": ["@arkyn/templates@1.4.51", "", {}, "sha512-ENehYrcXNtF0l6+urnMv33LD/vo4guOhVaD+O4l7NwKdIt4RG7C49SRT5PKVlvxXNUucU0ip6lwsiOOkZZulTA=="],
+    "@arkyn/templates": ["@arkyn/templates@1.4.52", "", {}, "sha512-pPJFSX9k94NnWeG6gNnuvLWm/3vaXa6+ADTodQqw6AoEkLrviXFxpqaaR4ApvS0YoMQB8QkfcegDquMM3Q7WDQ=="],
 
-    "@arkyn/types": ["@arkyn/types@1.4.51", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "@remix-run/react": "^2.16.2", "lucide-react": "^0.424.0", "react": "^18.3.1", "react-dom": "^18.3.1", "zod": "^3.24.2" } }, "sha512-ri2WvfY331/mZEz9SIkkF2lNdHh3dHb9s6laAKiSjz5Q3x9/G/5GStORHf2UwIkCShAt/40AlyXoR/YOvUmNVw=="],
+    "@arkyn/types": ["@arkyn/types@1.4.52", "", { "dependencies": { "@react-google-maps/api": "^2.20.6", "@react-input/mask": "^1.2.15", "@remix-run/react": "^2.16.2", "lucide-react": "^0.424.0", "react": "^18.3.1", "react-dom": "^18.3.1", "zod": "^3.24.2" } }, "sha512-LaqCTw7tVDqXRx/2WOwhEcZC00FldKk1V7OoHRgufGAx7m91Ic8xsqcErMdGdEH+7p5FQZplM8CNqKs7+G/BfQ=="],
 
     "@aws-crypto/crc32": ["@aws-crypto/crc32@5.2.0", "", { "dependencies": { "@aws-crypto/util": "^5.2.0", "@aws-sdk/types": "^3.222.0", "tslib": "^2.6.2" } }, "sha512-nLbCWqQNgUiwwtFsen1AdzAtvuLRsQS8rYgMuxCrdKf9kOssamGLuPwyTY9wyYblNr9+1XM8v6zoDTPPSIeANg=="],
 

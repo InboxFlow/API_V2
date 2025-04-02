@@ -17,11 +17,11 @@
     "ccm": "./auto_commit.sh"
   },
   "dependencies": {
-    "@arkyn/components": "^1.4.50",
-    "@arkyn/server": "^1.4.51",
-    "@arkyn/shared": "^1.4.51",
-    "@arkyn/templates": "^1.4.51",
-    "@arkyn/types": "^1.4.51",
+    "@arkyn/components": "^1.4.51",
+    "@arkyn/server": "^1.4.52",
+    "@arkyn/shared": "^1.4.52",
+    "@arkyn/templates": "^1.4.52",
+    "@arkyn/types": "^1.4.52",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "@prisma/client": "^5.22.0",
