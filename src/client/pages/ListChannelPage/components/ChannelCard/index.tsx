@@ -12,7 +12,7 @@ function ChannelCard(props: ChannelCardProps) {
   return (
     <ChannelCardContainer
       prefetch="intent"
-      to={`/client/v1/channel/${id}/dashboard`}
+      to={`/client/v1/channel/${id}/calls`}
     >
       <div>
         <strong>{name}</strong>
